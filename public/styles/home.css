@@ -1,0 +1,377 @@
+.hidden,
+.mainContent .staticInfo div:has(span) {
+	display: none;
+}
+
+.mainContent {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+}
+.mainContent .staticInfo {
+	display: flex;
+	flex-direction: column;
+	gap: 2.8em;
+}
+
+/* logo + info */
+.mainContent .staticInfo header {
+	display: flex;
+	flex-direction: column;
+	gap: 0.4em;
+	max-width: 420px;
+}
+.mainContent .staticInfo header div {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 0.4em;
+	padding: 0 var(--text-inset);
+}
+.mainContent .staticInfo header p,
+main h2 {
+	font-size: 1.16em;
+}
+
+.mainContent .staticInfo header img {
+	width: 100%;
+}
+
+/* current expo info */
+.mainContent .staticInfo section {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	border-bottom: 1px solid var(--color-dark);
+}
+.mainContent .staticInfo section.hidden {
+	display: none;
+}
+.mainContent .staticInfo section img {
+	width: 100%;
+	max-height: 320px;
+	aspect-ratio: 4 / 3;
+	object-fit: cover;
+	border-radius: var(--border-radius);
+}
+
+.mainContent .staticInfo section :is(p, h2) {
+	padding: 0 var(--text-inset);
+}
+.mainContent .staticInfo section div:last-of-type {
+	padding-bottom: 1em;
+}
+
+/* filter area */
+.mainContent:has(.loadingData.hidden) .searchArea {
+	padding: var(--standard-padding) 0 0 0;
+}
+.mainContent .searchArea {
+	position: sticky;
+	top: calc(0em - var(--standard-padding));
+	padding: var(--standard-padding) 0;
+	background-color: var(--color-light);
+	z-index: 99;
+}
+.mainContent .searchArea > div:first-of-type {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	padding: var(--text-inset);
+}
+.mainContent .searchArea > div:first-of-type > p {
+	max-width: 59%;
+}
+.mainContent .searchArea > div form {
+	display: flex;
+	gap: 1em;
+	align-items: center;
+	margin-top: auto;
+}
+.mainContent .searchArea input[type='radio'] {
+	display: none;
+}
+
+/* color filter */
+.mainContent .searchArea > div form:first-of-type {
+	display: flex;
+	justify-content: space-between;
+	white-space: nowrap;
+}
+.mainContent .searchArea > div form:first-of-type fieldset {
+	display: flex;
+	gap: 0.2em;
+	margin-right: 0.3em;
+	border: none;
+}
+
+/* amount of results form */
+.mainContent .searchArea > div form:last-of-type > p {
+	display: none;
+}
+.mainContent .searchArea > div form:last-of-type fieldset {
+	display: flex;
+	gap: 0.2em;
+	border: none;
+}
+
+.mainContent .searchArea > div form:last-of-type fieldset label {
+	display: flex;
+	gap: 0.4em;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	padding: var(--text-inset);
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+.mainContent .searchArea > div form:last-of-type fieldset label div {
+	height: 10px;
+	width: 10px;
+	background-color: var(--color-vague);
+	border-radius: 50%;
+	position: relative;
+}
+.mainContent .searchArea > div form:last-of-type fieldset label div::before {
+	position: absolute;
+	content: '';
+	top: 2px;
+	left: 2px;
+	width: 6px;
+	height: 6px;
+	background-color: var(--color-light);
+	border-radius: 50%;
+	opacity: 0;
+	transform: scale(1.5);
+	transition: all 0.3s ease;
+}
+#option-1:checked:checked ~ label[for='option-1'] div,
+#option-2:checked:checked ~ label[for='option-2'] div,
+#option-3:checked:checked ~ label[for='option-3'] div {
+	background-color: var(--color-dark);
+}
+#option-1:checked:checked ~ label[for='option-1'] div::before,
+#option-2:checked:checked ~ label[for='option-2'] div::before,
+#option-3:checked:checked ~ label[for='option-3'] div::before {
+	opacity: 1;
+	transform: scale(1);
+}
+.mainContent .searchArea > div form:last-of-type fieldset label span {
+	color: var(--color-vague);
+}
+#option-1:checked:checked ~ label[for='option-1'] span,
+#option-2:checked:checked ~ label[for='option-2'] span,
+#option-3:checked:checked ~ label[for='option-3'] span {
+	color: var(--color-dark);
+}
+
+/* search form */
+.mainContent .searchArea > form {
+	position: relative;
+	width: 100%;
+	border: 1px solid var(--color-dark);
+	border-radius: var(--border-radius);
+}
+.mainContent .searchArea > form input {
+	width: calc(100% - 3em);
+	height: 3em;
+	padding: 0 1em;
+	background-color: transparent;
+	border: none;
+}
+.mainContent .searchArea > form input::placeholder {
+	color: var(--color-vague);
+}
+.mainContent .searchArea > form button {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 3em;
+	height: 3em;
+	background-color: var(--color-dark);
+	border: none;
+	border-radius: calc(var(--border-radius) - 1px);
+	transition: 0.5s;
+}
+.mainContent .searchArea > form button svg {
+	width: 1.4em;
+	stroke: var(--color-light);
+	stroke-width: 2px;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+.mainContent .searchArea > form button:is(:hover, :focus-visible, :active) {
+	background-color: var(--color-light);
+	outline: 1px solid var(--color-dark);
+	transition: 0.5s;
+}
+.mainContent .searchArea > form button:is(:hover, :focus-visible, :active) svg {
+	stroke: var(--color-dark);
+	transition: 0.5s;
+}
+
+#autocompleteList {
+	margin-top: 0.4em;
+	padding-bottom: var(--standard-padding);
+	border: none;
+	max-height: 7.2em;
+	overflow-y: auto;
+}
+.autocompleteItems {
+	position: absolute;
+	border: 1px solid var(--color-dark);
+	border-bottom: none;
+	border-top: none;
+	z-index: 99;
+	top: 100%;
+	left: 0;
+	right: 0;
+}
+.autocompleteItems li {
+	padding: 10px;
+	cursor: pointer;
+	background-color: #fff;
+	border: 1px solid var(--color-dark);
+	border-top: none;
+}
+.autocompleteItems li:hover {
+	background-color: #e9e9e9;
+}
+.autocompleteActive {
+	background-color: var(--color-dark) !important;
+	color: #ffffff;
+}
+
+.mainContent .searchArea > div:last-of-type {
+	display: none;
+	position: absolute;
+	bottom: -2em;
+	width: 100%;
+	padding: 0.2em 0.6em;
+	border-radius: calc(var(--border-radius) - 4px);
+	background-color: var(--color-dark);
+	color: var(--color-light);
+}
+.mainContent .searchArea div:last-of-type.show {
+	display: block;
+}
+
+.mainContent .loadingData ul {
+	display: grid;
+	gap: 3em;
+}
+.mainContent .loadingData figure {
+	overflow: hidden;
+	border-radius: var(--border-radius);
+}
+.mainContent .loadingData img {
+	width: 100%;
+	border-radius: var(--border-radius);
+	transform: scale(1);
+	transition: 0.3s ease-in-out;
+}
+.mainContent .loadingData img:hover {
+	transform: scale(1.05);
+}
+.mainContent .loadingData div {
+	padding: 1em 0;
+	border-bottom: 1px solid var(--color-dark);
+}
+.mainContent .loadingData p {
+	font-family: var(--font-normalItalic);
+}
+
+@media only screen and (min-width: 1000px) {
+	.mainContent {
+		grid-column-start: 1;
+		grid-column-end: 3;
+		padding: var(--standard-padding);
+		overflow: auto;
+	}
+	.mainContent {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	.mainContent.spacing {
+		justify-content: unset;
+	}
+	.mainContent .staticInfo header {
+		max-width: none;
+	}
+	.mainContent .staticInfo header img {
+		width: 90%;
+	}
+	.mainContent .staticInfo header div {
+		display: none;
+	}
+	.mainContent .staticInfo section {
+		border: none;
+	}
+	.mainContent .staticInfo section img {
+		max-height: none;
+		aspect-ratio: 6 / 1;
+	}
+	.mainContent .staticInfo section div {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		white-space: nowrap;
+	}
+	.mainContent .staticInfo section div:first-of-type {
+		display: flex;
+		gap: 2em;
+	}
+	.mainContent .staticInfo section div:first-of-type span {
+		width: 100%;
+		height: 1px;
+		background-color: var(--color-dark);
+	}
+	.mainContent .searchArea {
+		display: flex;
+		flex-direction: column;
+		gap: 0.2em;
+	}
+	.mainContent .searchArea > div:first-of-type > p {
+		max-width: none;
+	}
+	.mainContent .searchArea div > form:last-of-type > p {
+		display: inline-block;
+	}
+	.mainContent .searchArea div:last-of-type p {
+		padding: var(--text-inset);
+	}
+	.mainContent .searchArea > form input {
+		height: calc(5em - 1.2em);
+	}
+	.mainContent .searchArea > form input,
+	.mainContent .searchArea > form input::placeholder {
+		font-size: 1.1em;
+	}
+	.mainContent .searchArea > form button {
+		width: auto;
+		height: 100%;
+		aspect-ratio: 1 / 1;
+	}
+	.mainContent .searchArea > form button svg {
+		width: 2em;
+	}
+	.mainContent .searchArea > div:last-of-type {
+		left: .6em;
+		bottom: -1.85em;
+		width: calc(100% - 4em - .6em);
+		border-radius: 0 0 var(--border-radius) var(--border-radius);
+	}
+	.mainContent .loadingData ul {
+		columns: 2;
+		display: block;
+	}
+	.mainContent .loadingData ul li {
+		padding-bottom: var(--standard-padding);
+		break-inside: avoid-column;
+	}
+	.mainContent .loadingData ul li:last-of-type {
+		padding-bottom: 0;
+	}
+}

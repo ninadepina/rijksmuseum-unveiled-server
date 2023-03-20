@@ -1,0 +1,163 @@
+@import url(./generateRandomArt.css);
+@import url(./home.css);
+@import url(./staticInfo.css);
+
+@font-face {
+	font-family: 'Rijks-normal';
+	src: url('../font/PannoText-Normal.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Rijks-normalItalic';
+	src: url('../font/PannoText-NormalItalic.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Rijks-bold';
+	src: url('../font/PannoText-Bold.ttf') format('truetype');
+}
+
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+	outline: none;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+*::selection {
+	background-color: var(--color-dark);
+	color: var(--color-light);
+}
+
+:root {
+	--color-dark: #0f0f0f;
+	--color-light: #fff;
+	--color-vague: #9f9f9f;
+
+	--font-normal: 'Rijks-normal', sans-serif;
+	--font-normalItalic: 'Rijks-normalItalic', sans-serif;
+	--font-bold: 'Rijks-bold', sans-serif;
+
+	--text-inset: 0.24em;
+
+	--border-radius: 10px;
+
+	--standard-padding: 2em;
+}
+
+::-webkit-scrollbar {
+	display: none;
+}
+
+body {
+	height: 100%;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+main {
+	min-height: 100vh;
+	margin-bottom: 3em;
+	padding: 2em;
+}
+
+/* prettier-ignore */
+h1, h2, h3, h4, h5, h6, p, a, div, span, button, input {
+	font-family: var(--font-normal);
+	font-weight: normal;
+}
+/* h1 only for semantic value and screenreaders */
+h1 {
+	position: absolute;
+	left: -10000px;
+	top: auto;
+	width: 1px;
+	height: 1px;
+}
+h2 {
+	text-transform: uppercase;
+}
+a {
+	display: block;
+	width: fit-content;
+	text-decoration: none;
+	color: var(--color-dark);
+}
+li a {
+	width: 100%;
+}
+li {
+	list-style: none;
+}
+button {
+	cursor: pointer;
+}
+strong {
+	font-family: var(--font-bold);
+}
+
+.hidden {
+	display: none;
+}
+@media only screen and (max-width: 999px) {
+	main {
+		display: flex;
+		flex-direction: column;
+	}
+}
+@media only screen and (min-width: 1000px) {
+	body {
+		background-color: var(--color-dark);
+	}
+	main {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1.18fr;
+		gap: 0.2em;
+		height: 100vh;
+		margin-bottom: 0;
+		padding: 0.4em;
+	}
+	main > section {
+		background-color: var(--color-light);
+		border-radius: var(--border-radius);
+	}
+	a:has(img):not(.socials a:has(img)) {
+		width: 100%;
+	}
+	li a {
+		width: fit-content;
+	}
+}
+
+@media only screen and (min-width: 1200px) {
+	main {
+		grid-template-rows: auto 12fr;
+	}
+
+	/* (1)[desktop: search section] */
+	.mainContent {
+		order: 4;
+	}
+
+	/* (2)[desktop: generate random art section] */
+	.generateRandomArt {
+		order: 5;
+	}
+
+	/* (3)[desktop: info section] */
+	.info {
+		order: 1;
+	}
+
+	/* (4)[desktop: socials section] */
+	.socials {
+		order: 2;
+	}
+
+	/* (5)[desktop: language section] */
+	.language {
+		order: 3;
+	}
+}
