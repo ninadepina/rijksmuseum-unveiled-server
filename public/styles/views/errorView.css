@@ -1,0 +1,74 @@
+.mainContent {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+}
+.mainContent .staticInfo {
+	display: flex;
+	flex-direction: column;
+	gap: 2.8em;
+}
+
+/* logo + info */
+.mainContent .staticInfo header {
+	display: flex;
+	flex-direction: column;
+	gap: 0.4em;
+	max-width: 420px;
+}
+.mainContent .staticInfo header img {
+	width: 100%;
+}
+
+.error {
+	display: flex;
+	flex-direction: column;
+	gap: var(--standard-padding);
+	margin-top: var(--standard-padding);
+}
+
+/* back button */
+.error a {
+	display: inline-block;
+	line-height: 1.4em;
+}
+.error a::after {
+	content: '';
+	display: block;
+	width: 0;
+	height: 4%;
+	background-color: var(--color-dark);
+	transition: width 0.3s;
+}
+.error a:is(:hover, :focus, :active)::after {
+	width: 100%;
+}
+
+/* container with error messages */
+.error div {
+	display: flex;
+	flex-direction: column;
+	align-self: center;
+	gap: 0.4em;
+	text-align: center;
+}
+
+@media only screen and (min-width: 1000px) {
+	.mainContent {
+		grid-column-start: 1;
+		grid-column-end: 3;
+		padding: var(--standard-padding);
+		overflow: auto;
+		display: flex;
+		flex-direction: column;
+	}
+	.mainContent.spacing {
+		justify-content: unset;
+	}
+	.mainContent .staticInfo header {
+		max-width: none;
+	}
+	.mainContent .staticInfo header img {
+		width: 90%;
+	}
+}

@@ -72,49 +72,26 @@ main h2 {
 	background-color: var(--color-light);
 	z-index: 99;
 }
-.mainContent .searchArea > div:first-of-type {
-	display: flex;
-	justify-content: space-between;
-	align-items: baseline;
-	padding: var(--text-inset);
-}
-.mainContent .searchArea > div:first-of-type > p {
-	max-width: 59%;
-}
-.mainContent .searchArea > div form {
-	display: flex;
-	gap: 1em;
-	align-items: center;
-	margin-top: auto;
-}
 .mainContent .searchArea input[type='radio'] {
 	display: none;
 }
 
-/* color filter */
-.mainContent .searchArea > div form:first-of-type {
-	display: flex;
-	justify-content: space-between;
-	white-space: nowrap;
-}
-.mainContent .searchArea > div form:first-of-type fieldset {
-	display: flex;
-	gap: 0.2em;
-	margin-right: 0.3em;
-	border: none;
-}
-
 /* amount of results form */
-.mainContent .searchArea > div form:last-of-type > p {
+.mainContent .searchArea form > p {
 	display: none;
 }
-.mainContent .searchArea > div form:last-of-type fieldset {
+.mainContent .searchArea form section:has(fieldset) {
+	display: flex;
+	align-items: center;
+	gap: 1em;
+}
+.mainContent .searchArea form fieldset {
 	display: flex;
 	gap: 0.2em;
 	border: none;
 }
 
-.mainContent .searchArea > div form:last-of-type fieldset label {
+.mainContent .searchArea form fieldset label {
 	display: flex;
 	gap: 0.4em;
 	height: 100%;
@@ -126,14 +103,14 @@ main h2 {
 	cursor: pointer;
 	transition: all 0.3s ease;
 }
-.mainContent .searchArea > div form:last-of-type fieldset label div {
+.mainContent .searchArea form fieldset label div {
 	height: 10px;
 	width: 10px;
 	background-color: var(--color-vague);
 	border-radius: 50%;
 	position: relative;
 }
-.mainContent .searchArea > div form:last-of-type fieldset label div::before {
+.mainContent .searchArea form fieldset label div::before {
 	position: absolute;
 	content: '';
 	top: 2px;
@@ -157,7 +134,7 @@ main h2 {
 	opacity: 1;
 	transform: scale(1);
 }
-.mainContent .searchArea > div form:last-of-type fieldset label span {
+.mainContent .searchArea form fieldset label span {
 	color: var(--color-vague);
 }
 #option-1:checked:checked ~ label[for='option-1'] span,
@@ -168,6 +145,13 @@ main h2 {
 
 /* search form */
 .mainContent .searchArea > form {
+	display: flex;
+	flex-direction: column;
+	align-items: end;
+	gap: 0.4em;
+	width: 100%;
+}
+.mainContent .searchArea > form > section:last-of-type {
 	position: relative;
 	width: 100%;
 	border: 1px solid var(--color-dark);
@@ -180,7 +164,7 @@ main h2 {
 	background-color: transparent;
 	border: none;
 }
-.mainContent .searchArea > form input::placeholder {
+.mainContent .searchArea > form input[type='text']::placeholder {
 	color: var(--color-vague);
 }
 .mainContent .searchArea > form button {
@@ -243,20 +227,6 @@ main h2 {
 	color: #ffffff;
 }
 
-.mainContent .searchArea > div:last-of-type {
-	display: none;
-	position: absolute;
-	bottom: -2em;
-	width: 100%;
-	padding: 0.2em 0.6em;
-	border-radius: calc(var(--border-radius) - 4px);
-	background-color: var(--color-dark);
-	color: var(--color-light);
-}
-.mainContent .searchArea div:last-of-type.show {
-	display: block;
-}
-
 .mainContent .loadingData ul {
 	display: grid;
 	gap: 3em;
@@ -288,8 +258,6 @@ main h2 {
 		grid-column-end: 3;
 		padding: var(--standard-padding);
 		overflow: auto;
-	}
-	.mainContent {
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
@@ -358,9 +326,9 @@ main h2 {
 		width: 2em;
 	}
 	.mainContent .searchArea > div:last-of-type {
-		left: .6em;
+		left: 0.6em;
 		bottom: -1.85em;
-		width: calc(100% - 4em - .6em);
+		width: calc(100% - 4em - 0.6em);
 		border-radius: 0 0 var(--border-radius) var(--border-radius);
 	}
 	.mainContent .loadingData ul {

@@ -1,0 +1,217 @@
+.mainContent {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+}
+.mainContent .staticInfo {
+	display: flex;
+	flex-direction: column;
+	gap: 2.8em;
+}
+
+/* logo + info */
+.mainContent .staticInfo header {
+	display: flex;
+	flex-direction: column;
+	gap: 0.4em;
+	max-width: 420px;
+}
+.mainContent .staticInfo header img {
+	width: 100%;
+}
+
+.colorFilter {
+	position: sticky;
+	top: calc(0em - var(--standard-padding));
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	gap: 0.6em;
+	height: 100%;
+	padding: var(--standard-padding) 0;
+	background-color: var(--color-light);
+	z-index: 99;
+}
+
+/* clear color/search selection */
+.colorFilter p {
+	display: inline-block;
+	margin-top: var(--standard-padding);
+	line-height: 1.4em;
+	cursor: pointer;
+}
+.colorFilter p::after {
+	content: '';
+	display: block;
+	width: 0;
+	height: 4%;
+	background-color: var(--color-dark);
+	transition: width 0.3s;
+}
+.colorFilter p:is(:hover, :focus, :active)::after {
+	width: 100%;
+}
+
+/* select color */
+.colorFilter input[type='radio'] {
+	display: none;
+}
+.colorFilter form {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.2em;
+}
+.colorFilter label div {
+	width: 37.9px;
+	height: 37.9px;
+	background: var(--color-value);
+	transition: all 0.15s ease;
+	cursor: pointer;
+}
+.colorFilter label:nth-of-type(1) {
+	--color-value: #000;
+}
+.colorFilter label:nth-of-type(2) {
+	--color-value: #737c84;
+}
+.colorFilter label:nth-of-type(3) {
+	--color-value: #b5bfcc;
+}
+.colorFilter label:nth-of-type(4) {
+	--color-value: #f6ecf3;
+}
+.colorFilter label:nth-of-type(5) {
+	--color-value: #dda5aa;
+}
+.colorFilter label:nth-of-type(6) {
+	--color-value: #f49b7a;
+}
+.colorFilter label:nth-of-type(7) {
+	--color-value: #df4c93;
+}
+.colorFilter label:nth-of-type(8) {
+	--color-value: #de4153;
+}
+.colorFilter label:nth-of-type(9) {
+	--color-value: #981313;
+}
+.colorFilter label:nth-of-type(10) {
+	--color-value: #b35a1f;
+}
+.colorFilter label:nth-of-type(11) {
+	--color-value: #e09714;
+}
+.colorFilter label:nth-of-type(12) {
+	--color-value: #ffeb00;
+}
+.colorFilter label:nth-of-type(13) {
+	--color-value: #fbf6e1;
+}
+.colorFilter label:nth-of-type(14) {
+	--color-value: #e0cc91;
+}
+.colorFilter label:nth-of-type(15) {
+	--color-value: #62ad77;
+}
+.colorFilter label:nth-of-type(16) {
+	--color-value: #2f4f4f;
+}
+.colorFilter label:nth-of-type(17) {
+	--color-value: #4279db;
+}
+.colorFilter label:nth-of-type(18) {
+	--color-value: #8268dc;
+}
+.colorFilter label:nth-of-type(19) {
+	--color-value: #4019b1;
+}
+.colorFilter label:nth-of-type(20) {
+	--color-value: #850085;
+}
+
+#color-1:checked:checked ~ label[for='color-1'] div,
+#color-2:checked:checked ~ label[for='color-2'] div,
+#color-3:checked:checked ~ label[for='color-3'] div,
+#color-4:checked:checked ~ label[for='color-4'] div,
+#color-5:checked:checked ~ label[for='color-5'] div,
+#color-6:checked:checked ~ label[for='color-6'] div,
+#color-7:checked:checked ~ label[for='color-7'] div,
+#color-8:checked:checked ~ label[for='color-8'] div,
+#color-9:checked:checked ~ label[for='color-9'] div,
+#color-10:checked:checked ~ label[for='color-10'] div,
+#color-11:checked:checked ~ label[for='color-11'] div,
+#color-12:checked:checked ~ label[for='color-12'] div,
+#color-13:checked:checked ~ label[for='color-13'] div,
+#color-14:checked:checked ~ label[for='color-14'] div,
+#color-15:checked:checked ~ label[for='color-15'] div,
+#color-16:checked:checked ~ label[for='color-16'] div,
+#color-17:checked:checked ~ label[for='color-17'] div,
+#color-18:checked:checked ~ label[for='color-18'] div,
+#color-19:checked:checked ~ label[for='color-19'] div,
+#color-20:checked:checked ~ label[for='color-20'] div,
+.colorFilter label div:hover {
+	background-color: #fff;
+	border: 8px solid var(--color-value);
+	transition: all 0.15s ease;
+}
+
+@media only screen and (min-width: 1000px) {
+	.mainContent:has(.colorFilter) {
+		justify-content: normal;
+	}
+	.mainContent:has(.colorFilter) .loadingData ul {
+		columns: 4;
+	}
+	.colorFilter p {
+		margin-top: 0;
+	}
+	.colorFilter label div {
+		width: 38.6px;
+		height: 38.6px;
+	}
+	#color-1:checked:checked ~ label[for='color-1'] div,
+	#color-2:checked:checked ~ label[for='color-2'] div,
+	#color-3:checked:checked ~ label[for='color-3'] div,
+	#color-4:checked:checked ~ label[for='color-4'] div,
+	#color-5:checked:checked ~ label[for='color-5'] div,
+	#color-6:checked:checked ~ label[for='color-6'] div,
+	#color-7:checked:checked ~ label[for='color-7'] div,
+	#color-8:checked:checked ~ label[for='color-8'] div,
+	#color-9:checked:checked ~ label[for='color-9'] div,
+	#color-10:checked:checked ~ label[for='color-10'] div,
+	#color-11:checked:checked ~ label[for='color-11'] div,
+	#color-12:checked:checked ~ label[for='color-12'] div,
+	#color-13:checked:checked ~ label[for='color-13'] div,
+	#color-14:checked:checked ~ label[for='color-14'] div,
+	#color-15:checked:checked ~ label[for='color-15'] div,
+	#color-16:checked:checked ~ label[for='color-16'] div,
+	#color-17:checked:checked ~ label[for='color-17'] div,
+	#color-18:checked:checked ~ label[for='color-18'] div,
+	#color-19:checked:checked ~ label[for='color-19'] div,
+	#color-20:checked:checked ~ label[for='color-20'] div,
+	.colorFilter label div:hover {
+		height: 52px;
+		background-color: var(--color-value);
+		border: none;
+	}
+}
+
+@media only screen and (min-width: 1000px) {
+	.mainContent {
+		grid-column-start: 1;
+		grid-column-end: 3;
+		padding: var(--standard-padding);
+		overflow: auto;
+		display: flex;
+		flex-direction: column;
+	}
+	.mainContent.spacing {
+		justify-content: unset;
+	}
+	.mainContent .staticInfo header {
+		max-width: none;
+	}
+	.mainContent .staticInfo header img {
+		width: 90%;
+	}
+}

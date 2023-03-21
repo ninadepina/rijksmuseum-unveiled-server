@@ -1,6 +1,14 @@
-@import url(./generateRandomArt.css);
-@import url(./home.css);
-@import url(./staticInfo.css);
+/* @import url(./views/colorFilterView.css); */
+/* @import url(./views/detailView.css); */
+/* @import url(./views/errorView.css); */
+@import url(./views/generateRandomArt.css);
+/* @import url(./views/normalView.css); */
+@import url(./views/staticInfo.css);
+
+@import url(./partials/footer.css);
+
+@import url(./utils/loadingAnimations.css);
+@import url(./utils/prefers-reduced-motion.css);
 
 @font-face {
 	font-family: 'Rijks-normal';

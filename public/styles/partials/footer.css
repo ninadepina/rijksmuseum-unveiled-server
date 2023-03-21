@@ -1,0 +1,16 @@
+footer {
+	position: fixed;
+	bottom: 0;
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	padding: 1em 2em;
+	background-color: var(--color-dark);
+	z-index: 999;
+}
+
+@media only screen and (min-width: 1000px) {
+	footer {
+		display: none;
+	}
+}

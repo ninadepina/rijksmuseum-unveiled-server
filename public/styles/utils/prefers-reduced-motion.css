@@ -1,0 +1,21 @@
+@media (prefers-reduced-motion: reduce) {
+	.mainContent .loadingData img:hover {
+		transform: none !important;
+	}
+
+	.generateRandomArt section > div.skeletonLoader,
+	.generateRandomArt section > div p.skeletonLoader,
+	.generateRandomArt section > div h2.skeletonLoader {
+		animation: none !important;
+	}
+
+	.loadingBanner.visible img {
+		animation: loaderReducedMotion 3s !important;
+	}
+	@keyframes loaderReducedMotion {
+		0%,
+		100% {
+			width: 24%;
+		}
+	}
+}
