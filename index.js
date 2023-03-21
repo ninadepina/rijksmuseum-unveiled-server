@@ -2,9 +2,10 @@ import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { engine } from 'express-handlebars';
+import routes from './routes/routes.js';
 
 const app = express();
-const port = process.env.PORT || 3000;
+// https://flaviocopes.com/fix-dirname-not-defined-es-module-scope/
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -24,10 +25,12 @@ app.engine(
 app.set('view engine', 'hbs');
 app.set('views', './views');
 
-app.get('/', (req, res) => {
-	res.render('home', { title: 'Home' });
+// routes
+routes.forEach((route) => {
+	app.use(route.path, route.view);
 });
 
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
 	console.log(`Server is running at http://localhost:${port}`);
 });
