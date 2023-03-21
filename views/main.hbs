@@ -5,11 +5,101 @@
 		<meta name='viewport' content='width=device-width, initial-scale=1.0' />
 		<title>Rijksmuseum Unveiled</title>
 
-		<link rel="stylesheet" href="/styles/main.css">
+		<link rel='stylesheet' href='/styles/main.css' />
+		{{#each css}}
+			<link rel='stylesheet' href='/styles/{{this}}.css' />
+		{{/each}}
 	</head>
 	<body>
 		<main>
-			{{{body}}}
+			<h1>Rijksmuseum Art Online</h1>
+
+			<!-- (1)[mobile][desktop: search section] -->
+			<section class='mainContent'>
+				{{{body}}}
+			</section>
+
+			<!-- (2)[desktop: generate random art section] -->
+			<section class='generateRandomArt'>
+				<section>
+					<img src='' alt='' />
+					<div class='skeletonLoader'></div>
+					<div>
+						<h2 class='skeletonLoader'></h2>
+						<p class='skeletonLoader'></p>
+					</div>
+				</section>
+				<button>
+					<p>Generate a random art piece</p>
+					<img
+						draggable='false'
+						src='/uploads/arrow-right.svg'
+						alt='Arrow icon inside of a button for generating a random piece of art, click the button to explore a random work of art from the collection.'
+					/>
+				</button>
+			</section>
+
+			<!-- (3)[desktop: info section] -->
+			<section class='info'>
+				<p>Open daily 9 to 17h</p>
+				<p>|</p>
+				<p>Museumstraat 1, Amsterdam</p>
+			</section>
+
+			<!-- (4)[desktop: socials section] -->
+			<section class='socials'>
+				<a href='https://www.instagram.com/rijksmuseum/'><img
+						draggable='false'
+						src='/uploads/instagram.svg'
+						alt='Instagram logo, linking to the Rijksmuseum Instagram profile'
+					/></a>
+				<a href='https://www.facebook.com/rijksmuseum/'><img
+						draggable='false'
+						src='/uploads/facebook.svg'
+						alt='Facebook logo, linking to the Rijksmuseum Facebook profile'
+					/></a>
+				<a href='https://www.youtube.com/channel/UCEXuPfYt1M3e8DT1LDeSfVg'><img
+						draggable='false'
+						src='/uploads/youtube.svg'
+						alt='Twitter logo, linking to the Rijksmuseum Twitter profile'
+					/></a>
+				<a href='https://www.twitter.com/rijksmuseum'><img
+						draggable='false'
+						src='/uploads/twitter.svg'
+						alt='LinkedIn logo, linking to the Rijksmuseum LinkedIn profile'
+					/></a>
+				<a href='https://www.tiktok.com/@rijksmuseum'><img
+						draggable='false'
+						src='/uploads/tiktok.svg'
+						alt='TikTok logo, linking to the Rijksmuseum TikTok profile'
+					/></a>
+				<a href='https://www.linkedin.com/company/rijksmuseum'><img
+						draggable='false'
+						src='/uploads/linkedin.svg'
+						alt='YouTube logo, linking to the Rijksmuseum YouTube profile'
+					/></a>
+			</section>
+
+			<!-- (5)[desktop: language section] -->
+			<section class='language'>
+				<fieldset>
+					<label>
+						<input type='radio' name='language' value='en' />
+						<img draggable='false' src='/uploads/gb.svg' alt='gb flag' />
+					</label>
+					<label>
+						<input type='radio' name='language' value='nl' />
+						<img draggable='false' src='/uploads/ned.svg' alt='nl flag' />
+					</label>
+				</fieldset>
+
+				<a href='/colorfilter' data-before='Color filter for Sanne'></a>
+			</section>
+
+			<!-- loading animation on first load -->
+			<section class='loadingBanner'>
+				<img draggable='false' src='/uploads/RijkMuseumUnveiledLogo.svg' alt='' />
+			</section>
 		</main>
 	</body>
 </html>

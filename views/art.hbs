@@ -1,33 +1,11 @@
 <section class='staticInfo'>
 	<header>
 		<img draggable='false' src='/uploads/logoRijksmuseum.svg' alt='Rijksmuseum logo' />
-		<div>
-			<p>Open daily 9 to 17h</p>
-			<p>|</p>
-			<p>Museumstraat 1, Amsterdam</p>
-		</div>
 	</header>
-
-	<section>
-		<div>
-			<p>10 - 1632</p>
-			<span></span>
-			<p>12 - 1675</p>
-		</div>
-		<img
-			draggable='false'
-			src='/uploads/collageVermeer.jpeg'
-			alt='Image displaying multiple artworks by Johannes Vermeer'
-		/>
-		<div>
-			<h2>Johannes Vermeer exposition</h2>
-			<p>At the moment there are no more tickets available..</p>
-		</div>
-	</section>
 </section>
 
 <section class='searchArea'>
-	<form action='/art' method='get' autocomplete='off'>
+	<form action='/art' method='get'>
 		<section>
 			<p>Amount of results:</p>
 			<fieldset>
@@ -56,6 +34,7 @@
 					placeholder='Search for artists, art pieces and more...'
 					name='userInput'
 					autocomplete='off'
+					value='{{userInput}}'
 				/>
 			</div>
 			<button type='submit'>
@@ -68,4 +47,22 @@
 			</button>
 		</section>
 	</form>
+</section>
+
+<section class='loadingData'>
+	<ul>
+		{{#each artItem}}
+			<li>
+				<a href='/artItem/{{this.objectNumber}}' aria-label='view details of {{this.title}}'>
+					<figure>
+						<img src='{{this.webImage.url}}' alt='{{this.longTitle}}' />
+					</figure>
+					<div>
+						<h2>{{this.title}}</h2>
+						<p>{{this.principalOrFirstMaker}}</p>
+					</div>
+				</a>
+			</li>
+		{{/each}}
+	</ul>
 </section>
