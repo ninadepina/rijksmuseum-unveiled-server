@@ -1,6 +1,6 @@
 import fetch from 'node-fetch';
-import * as dotenv from 'dotenv'
-dotenv.config()
+import * as dotenv from 'dotenv';
+dotenv.config();
 
 // fetching data from the Rijkmuseum API based on user input
 const fetchData = async (userInput, resultCount) => {
