@@ -1,12 +1,17 @@
-<article class='artItemContainer'>
-	<a href='/art'>< back to all results</a>
-	<div>
-		<img src='{{artData.webImage.url}}' alt='{{artData.longTitle}}' />
+<h1>Rijksmuseum Art Online</h1>
+
+<!-- (1)[mobile][desktop: search section] -->
+<section class='mainContent'>
+	<article class='artItemContainer'>
+		<a href='/art'>< back to all results</a>
 		<div>
-			<h2>{{artData.title}}</h2>
-			<p>{{artData.principalOrFirstMaker}}</p>
-			<p>{{artData.subTitle}}</p>
-			<p>{{artData.plaqueDescriptionEnglish}}</p>
+			<img src='{{artData.webImage.url}}' alt='{{artData.longTitle}}' />
+			<div>
+				<h2>{{artData.title}}</h2>
+				<p>{{artData.principalOrFirstMaker}}</p>
+				<p>{{artData.subTitle}}</p>
+				<p>{{artData.plaqueDescriptionEnglish}}</p>
+			</div>
 		</div>
-	</div>
-</article>
+	</article>
+</section>

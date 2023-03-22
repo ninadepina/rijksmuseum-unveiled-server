@@ -1,68 +1,71 @@
-<section class='staticInfo'>
-	<header>
-		<img draggable='false' src='/uploads/logoRijksmuseum.svg' alt='Rijksmuseum logo' />
-	</header>
-</section>
+<h1>Rijksmuseum Art Online</h1>
+<section class='mainContent'>
+	<section class='staticInfo'>
+		<header>
+			<img draggable='false' src='/uploads/logoRijksmuseum.svg' alt='Rijksmuseum logo' />
+		</header>
+	</section>
 
-<section class='searchArea'>
-	<form action='/art' method='get'>
-		<section>
-			<p>Amount of results:</p>
-			<fieldset>
-				<input type='radio' name='resultCount' id='option-1' value='10' checked />
-				<input type='radio' name='resultCount' id='option-2' value='20' />
-				<input type='radio' name='resultCount' id='option-3' value='30' />
+	<section class='searchArea'>
+		<form action='/art' method='get'>
+			<section>
+				<p>Amount of results:</p>
+				<fieldset>
+					<input type='radio' name='resultCount' id='option-1' value='10' checked />
+					<input type='radio' name='resultCount' id='option-2' value='20' />
+					<input type='radio' name='resultCount' id='option-3' value='30' />
 
-				<label for='option-1'>
-					<div></div>
-					<span>10</span>
-				</label>
-				<label for='option-2'>
-					<div></div>
-					<span>20</span>
-				</label>
-				<label for='option-3'>
-					<div></div>
-					<span>30</span>
-				</label>
-			</fieldset>
-		</section>
-		<section>
-			<div>
-				<input
-					type='text'
-					placeholder='Search for artists, art pieces and more...'
-					name='userInput'
-					autocomplete='off'
-					value='{{userInput}}'
-				/>
-			</div>
-			<button type='submit'>
-				<svg fill='none' viewBox='0 0 41 41' xmlns='http://www.w3.org/2000/svg'>
-					<path
-						d='m18.333 35.667c9.573 0 17.333-7.7604 17.333-17.333 0-9.5729-7.7604-17.333-17.333-17.333-9.5729 0-17.333 7.7604-17.333 17.333 0 9.573 7.7604 17.333 17.333 17.333z'
-					></path>
-					<path d='m40 40-9.425-9.425'></path>
-				</svg>
-			</button>
-		</section>
-	</form>
-</section>
+					<label for='option-1'>
+						<div></div>
+						<span>10</span>
+					</label>
+					<label for='option-2'>
+						<div></div>
+						<span>20</span>
+					</label>
+					<label for='option-3'>
+						<div></div>
+						<span>30</span>
+					</label>
+				</fieldset>
+			</section>
+			<section>
+				<div>
+					<input
+						type='text'
+						placeholder='Search for artists, art pieces and more...'
+						name='userInput'
+						autocomplete='off'
+						value='{{userInput}}'
+					/>
+				</div>
+				<button type='submit'>
+					<svg fill='none' viewBox='0 0 41 41' xmlns='http://www.w3.org/2000/svg'>
+						<path
+							d='m18.333 35.667c9.573 0 17.333-7.7604 17.333-17.333 0-9.5729-7.7604-17.333-17.333-17.333-9.5729 0-17.333 7.7604-17.333 17.333 0 9.573 7.7604 17.333 17.333 17.333z'
+						></path>
+						<path d='m40 40-9.425-9.425'></path>
+					</svg>
+				</button>
+			</section>
+		</form>
+	</section>
 
-<section class='loadingData'>
-	<ul>
-		{{#each artItem}}
-			<li>
-				<a href='/artItem/{{this.objectNumber}}' aria-label='view details of {{this.title}}'>
-					<figure>
-						<img src='{{this.webImage.url}}' alt='{{this.longTitle}}' />
-					</figure>
-					<div>
-						<h2>{{this.title}}</h2>
-						<p>{{this.principalOrFirstMaker}}</p>
-					</div>
-				</a>
-			</li>
-		{{/each}}
-	</ul>
+	<section class='loadingData'>
+		<ul>
+			{{#each artItem}}
+				<li>
+					<a href='/artItem/{{this.objectNumber}}' aria-label='view details of {{this.title}}'>
+						<figure>
+							<img src='{{this.webImage.url}}' alt='{{this.longTitle}}' />
+						</figure>
+						<div>
+							<h2>{{this.title}}</h2>
+							<p>{{this.principalOrFirstMaker}}</p>
+						</div>
+					</a>
+				</li>
+			{{/each}}
+		</ul>
+	</section>
 </section>

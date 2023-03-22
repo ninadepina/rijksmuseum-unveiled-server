@@ -1,71 +1,76 @@
-<section class='staticInfo'>
-	<header>
-		<img draggable='false' src='/uploads/logoRijksmuseum.svg' alt='Rijksmuseum logo' />
-		<div>
-			<p>Open daily 9 to 17h</p>
-			<p>|</p>
-			<p>Museumstraat 1, Amsterdam</p>
-		</div>
-	</header>
+<h1>Rijksmuseum Art Online</h1>
 
-	<section>
-		<div>
-			<p>10 - 1632</p>
-			<span></span>
-			<p>12 - 1675</p>
-		</div>
-		<img
-			draggable='false'
-			src='/uploads/collageVermeer.jpeg'
-			alt='Image displaying multiple artworks by Johannes Vermeer'
-		/>
-		<div>
-			<h2>Johannes Vermeer exposition</h2>
-			<p>At the moment there are no more tickets available..</p>
-		</div>
-	</section>
-</section>
+<!-- (1)[mobile][desktop: search section] -->
+<section class='mainContent'>
+	<section class='staticInfo'>
+		<header>
+			<img draggable='false' src='/uploads/logoRijksmuseum.svg' alt='Rijksmuseum logo' />
+			<div>
+				<p>Open daily 9 to 17h</p>
+				<p>|</p>
+				<p>Museumstraat 1, Amsterdam</p>
+			</div>
+		</header>
 
-<section class='searchArea'>
-	<form action='/art' method='get' autocomplete='off'>
-		<section>
-			<p>Amount of results:</p>
-			<fieldset>
-				<input type='radio' name='resultCount' id='option-1' value='10' checked />
-				<input type='radio' name='resultCount' id='option-2' value='20' />
-				<input type='radio' name='resultCount' id='option-3' value='30' />
-
-				<label for='option-1'>
-					<div></div>
-					<span>10</span>
-				</label>
-				<label for='option-2'>
-					<div></div>
-					<span>20</span>
-				</label>
-				<label for='option-3'>
-					<div></div>
-					<span>30</span>
-				</label>
-			</fieldset>
-		</section>
 		<section>
 			<div>
-				<input
-					type='text'
-					placeholder='Search for artists, art pieces and more...'
-					name='userInput'
-					autocomplete='off'
-				/>
+				<p>10 - 1632</p>
+				<span></span>
+				<p>12 - 1675</p>
 			</div>
-			<button type='submit'>
-				<svg fill='none' viewBox='0 0 41 41' xmlns='http://www.w3.org/2000/svg'>
-					<path
-						d='m18.333 35.667c9.573 0 17.333-7.7604 17.333-17.333 0-9.5729-7.7604-17.333-17.333-17.333-9.5729 0-17.333 7.7604-17.333 17.333 0 9.573 7.7604 17.333 17.333 17.333z'
-					></path>
-					<path d='m40 40-9.425-9.425'></path>
-				</svg>
-			</button>
+			<img
+				draggable='false'
+				src='/uploads/collageVermeer.jpeg'
+				alt='Image displaying multiple artworks by Johannes Vermeer'
+			/>
+			<div>
+				<h2>Johannes Vermeer exposition</h2>
+				<p>At the moment there are no more tickets available..</p>
+			</div>
 		</section>
-	</form>
+	</section>
+
+	<section class='searchArea'>
+		<form action='/art' method='get' autocomplete='off'>
+			<section>
+				<p>Amount of results:</p>
+				<fieldset>
+					<input type='radio' name='resultCount' id='option-1' value='10' checked />
+					<input type='radio' name='resultCount' id='option-2' value='20' />
+					<input type='radio' name='resultCount' id='option-3' value='30' />
+
+					<label for='option-1'>
+						<div></div>
+						<span>10</span>
+					</label>
+					<label for='option-2'>
+						<div></div>
+						<span>20</span>
+					</label>
+					<label for='option-3'>
+						<div></div>
+						<span>30</span>
+					</label>
+				</fieldset>
+			</section>
+			<section>
+				<div>
+					<input
+						type='text'
+						placeholder='Search for artists, art pieces and more...'
+						name='userInput'
+						autocomplete='off'
+					/>
+				</div>
+				<button type='submit'>
+					<svg fill='none' viewBox='0 0 41 41' xmlns='http://www.w3.org/2000/svg'>
+						<path
+							d='m18.333 35.667c9.573 0 17.333-7.7604 17.333-17.333 0-9.5729-7.7604-17.333-17.333-17.333-9.5729 0-17.333 7.7604-17.333 17.333 0 9.573 7.7604 17.333 17.333 17.333z'
+						></path>
+						<path d='m40 40-9.425-9.425'></path>
+					</svg>
+				</button>
+			</section>
+		</form>
+	</section>
 </section>
