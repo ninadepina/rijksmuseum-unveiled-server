@@ -5,6 +5,7 @@ const router = express.Router();
 
 router.get('/', async (req, res) => {
 	let randomArt;
+	const language = req.cookies.language || 'en';
 	let resultCount = req.cookies.resultCount || req.query.resultCount;
 	const userInput = req.query.userInput;
   
@@ -12,8 +13,6 @@ router.get('/', async (req, res) => {
 	  resultCount = req.query.resultCount;
 	  res.cookie('resultCount', resultCount);
 	}
-
-	const language = req.cookies.language || 'en';
 
 	const artItem = await fetchData(userInput, resultCount);
 
