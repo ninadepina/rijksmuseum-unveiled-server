@@ -8,14 +8,14 @@ router.get('/', async (req, res) => {
 	const language = req.cookies.language || 'en';
 	let resultCount = req.cookies.resultCount || req.query.resultCount;
 	let userInput = req.cookies.userInput || req.query.userInput;
-  
+
 	if (req.query.resultCount) {
-	  resultCount = req.query.resultCount;
-	  res.cookie('resultCount', resultCount);
+		resultCount = req.query.resultCount;
+		res.cookie('resultCount', resultCount);
 	}
 	if (req.query.userInput) {
 		userInput = req.query.userInput;
-	  res.cookie('userInput', userInput);
+		res.cookie('userInput', userInput);
 	}
 
 	const artItem = await fetchData(userInput, resultCount);

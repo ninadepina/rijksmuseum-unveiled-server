@@ -36,24 +36,23 @@ const fetchRandomArt = async () => {
 	try {
 		data = await (await fetch(url)).json();
 		randomNumber = Math.floor(Math.random() * data.artObjects.length);
-		return data.artObjects[randomNumber]
+		return data.artObjects[randomNumber];
 	} catch {
 		console.error('error');
 	}
-}
+};
 
 const fetchColorData = async (color) => {
 	if (color) color = color.toUpperCase();
-    let data;
-    const url = `https://www.rijksmuseum.nl/api/en/collection?key=${process.env.API_KEY}&ps=100&imgonly=true&f.normalized32Colors.hex=%20%23${color}`;
+	let data;
+	const url = `https://www.rijksmuseum.nl/api/en/collection?key=${process.env.API_KEY}&ps=100&imgonly=true&f.normalized32Colors.hex=%20%23${color}`;
 
-    try {
-        data = await (await fetch(url)).json();
-        return data.artObjects;
-    }
-    catch {
-        console.error('error');
-    }
+	try {
+		data = await (await fetch(url)).json();
+		return data.artObjects;
+	} catch {
+		console.error('error');
+	}
 };
 
 export { fetchData, fetchDataIndividual, fetchColorData, fetchRandomArt };
