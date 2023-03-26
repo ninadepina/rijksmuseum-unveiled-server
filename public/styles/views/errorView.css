@@ -40,7 +40,9 @@
 	background-color: var(--color-dark);
 	transition: width 0.3s;
 }
-.error a:is(:hover, :focus, :active)::after {
+.error a:hover::after,
+.error a:focus::after,
+.error a:active::after {
 	width: 100%;
 }
 
