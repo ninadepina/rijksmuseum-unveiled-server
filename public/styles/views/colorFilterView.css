@@ -33,14 +33,20 @@
 	z-index: 99;
 }
 
-/* clear color/search selection */
-.colorFilter p {
+.colorFilter button {
+	border: none;
+	background-color: transparent;
+}
+
+.colorFilter p,
+.colorFilter button {
 	display: inline-block;
-	margin-top: var(--standard-padding);
-	line-height: 1.4em;
+	font-size: 1em;
+	line-height: 1.2em;
 	cursor: pointer;
 }
-.colorFilter p::after {
+.colorFilter p::after,
+.colorFilter button::after {
 	content: '';
 	display: block;
 	width: 0;
@@ -48,7 +54,12 @@
 	background-color: var(--color-dark);
 	transition: width 0.3s;
 }
-.colorFilter p:is(:hover, :focus, :active)::after {
+.colorFilter p:hover::after,
+.colorFilter p:focus::after,
+.colorFilter p:active::after,
+.colorFilter button:hover::after,
+.colorFilter button:focus::after,
+.colorFilter button:active::after {
 	width: 100%;
 }
 
@@ -58,9 +69,19 @@
 }
 .colorFilter form {
 	display: flex;
+	flex-direction: column;
+	gap: 0.6em;
+}
+.colorFilter form > div:first-of-type {
+	display: flex;
+	justify-content: space-between;
+}
+.colorFilter form > div:last-of-type {
+	display: flex;
 	flex-wrap: wrap;
 	gap: 0.2em;
 }
+
 .colorFilter label div {
 	width: 37.9px;
 	height: 37.9px;

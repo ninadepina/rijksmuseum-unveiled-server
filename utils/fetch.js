@@ -28,4 +28,32 @@ const fetchDataIndividual = async (id) => {
 	}
 };
 
-export { fetchData, fetchDataIndividual };
+const fetchRandomArt = async () => {
+	let data;
+	let randomNumber;
+	const url = `https://www.rijksmuseum.nl/api/en/collection?key=${process.env.API_KEY}&ps=100&imgonly=true`;
+
+	try {
+		data = await (await fetch(url)).json();
+		randomNumber = Math.floor(Math.random() * data.artObjects.length);
+		return data.artObjects[randomNumber]
+	} catch {
+		console.error('error');
+	}
+}
+
+const fetchColorData = async (color) => {
+	color = color.toUpperCase();
+    let data;
+    const url = `https://www.rijksmuseum.nl/api/en/collection?key=${process.env.API_KEY}&ps=100&imgonly=true&f.normalized32Colors.hex=%20%23${color}`;
+
+    try {
+        data = await (await fetch(url)).json();
+        return data.artObjects;
+    }
+    catch {
+        console.error('error');
+    }
+};
+
+export { fetchData, fetchDataIndividual, fetchColorData, fetchRandomArt };
