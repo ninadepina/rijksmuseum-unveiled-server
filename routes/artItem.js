@@ -6,6 +6,7 @@ const router = express.Router();
 router.get('/:id', async (req, res) => {
 	let randomArt;
     const { id } = req.params;
+	res.cookie('artId', id);
 	const artData = await fetchDataIndividual(id);
 	const language = req.cookies.language || 'en';
 
