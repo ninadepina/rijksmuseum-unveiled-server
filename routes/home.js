@@ -3,8 +3,10 @@ import { fetchRandomArt } from '../utils/fetch.js';
 const router = express.Router();
 
 router.get('/', async (req, res) => {
+	if (!req.cookies.language) res.cookie('language', 'en');
+
 	let randomArt;
-	const language = req.cookies.language || 'en';
+	const language = req.cookies.language;
 
 	if (req.body['fetchRandomArt']) {
 		randomArt = await fetchRandomArt();
