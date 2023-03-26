@@ -26,7 +26,7 @@ router.get('/', async (req, res) => {
 
 	randomArt = await fetchRandomArt();
 
-	res.render('art', { css: ['views/normalView'], language, artItem, userInput, resultCount, randomArt });
+	res.render('art', { css: ['views/normalView'], js: ['autocomplete', 'scrollIntoView'], language, artItem, userInput, resultCount, randomArt });
 });
 
 export default router;
