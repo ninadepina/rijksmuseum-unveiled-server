@@ -7,10 +7,10 @@ router.get('/', async (req, res) => {
 	const color = req.query.color;
 	const language = req.cookies.language || 'en';
 
-	if (req.body['fetchRandomArt']) {
+	if (req.query['fetchRandomArt']) {
 		randomArt = await fetchRandomArt();
 	}
-	
+
 	randomArt = await fetchRandomArt();
 	const colorData = await fetchColorData(color);
 
