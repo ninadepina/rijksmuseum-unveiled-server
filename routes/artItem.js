@@ -7,6 +7,7 @@ router.get('/:id', async (req, res) => {
 	let randomArt;
     const { id } = req.params;
 	const artData = await fetchDataIndividual(id);
+	const language = req.cookies.language || 'en';
 
 	if (req.body['fetchRandomArt']) {
 		randomArt = await fetchRandomArt();
@@ -14,7 +15,7 @@ router.get('/:id', async (req, res) => {
 	
 	randomArt = await fetchRandomArt();
 
-	res.render('artItem', { css: ['views/detailView'], artData, randomArt });
+	res.render('artItem', { css: ['views/detailView'], language, artData, randomArt });
 });
 
 export default router;

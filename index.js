@@ -3,6 +3,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { engine } from 'express-handlebars';
 import routes from './routes/routes.js';
+import cookieParser from 'cookie-parser';
 
 const app = express();
 // https://flaviocopes.com/fix-dirname-not-defined-es-module-scope/
@@ -11,6 +12,7 @@ const __dirname = path.dirname(__filename);
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
 
 app.engine('handlebars', engine());
 app.engine(
@@ -19,11 +21,23 @@ app.engine(
 		layoutsDir: `${path.join(__dirname)}/views`,
 		partialsDir: `${path.join(__dirname)}/views/partials`,
 		defaultLayout: 'main',
-		extname: '.hbs'
+		extname: '.hbs',
+		helpers: {
+			eq: function (a, b) {
+				return a === b;
+			}
+		}
 	})
 );
 app.set('view engine', 'hbs');
 app.set('views', './views');
+
+// language cookie
+app.post('/language', (req, res) => {
+	const language = req.body.language || 'en';
+	res.cookie('language', language);
+	res.redirect('/');
+});
 
 // routes
 routes.forEach((route) => {

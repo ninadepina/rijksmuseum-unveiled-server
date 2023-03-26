@@ -5,6 +5,7 @@ const router = express.Router();
 router.get('/', async (req, res) => {
 	let randomArt;
 	const color = req.query.color;
+	const language = req.cookies.language || 'en';
 
 	if (req.body['fetchRandomArt']) {
 		randomArt = await fetchRandomArt();
@@ -13,7 +14,7 @@ router.get('/', async (req, res) => {
 	randomArt = await fetchRandomArt();
 	const colorData = await fetchColorData(color);
 
-	res.render('colorfilter', { css: ['views/colorFilterView', 'views/normalView'], randomArt, colorData });
+	res.render('colorfilter', { css: ['views/colorFilterView', 'views/normalView'], language, randomArt, colorData });
 });
 
 export default router;
