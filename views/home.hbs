@@ -24,8 +24,16 @@
 				alt='Image displaying multiple artworks by Johannes Vermeer'
 			/>
 			<div>
-				<h2>Johannes Vermeer exposition</h2>
-				<p>At the moment there are no more tickets available..</p>
+				<h2>{{#if (eq language 'nl')}} 
+					Johannes Vermeer expositie
+				{{else}} 
+					Johannes Vermeer exposition
+				{{/if}}</h2>
+				<p>{{#if (eq language 'nl')}} 
+					Op dit moment zijn er geen tickets meer beschikbaar..
+				{{else}} 
+					At the moment there are no more tickets available..
+				{{/if}}</p>
 			</div>
 		</section>
 	</section>
@@ -33,7 +41,11 @@
 	<section class='searchArea'>
 		<form action='/art' method='get' autocomplete='off'>
 			<section>
-				<p>Amount of results:</p>
+				<p>{{#if (eq language 'nl')}} 
+					Hoeveelheid resultaten: 
+				{{else}} 
+					Amount of results: 
+				{{/if}}</p>
 				<fieldset>
 					<input type='radio' name='resultCount' id='option-1' value='10' checked />
 					<input type='radio' name='resultCount' id='option-2' value='20' />
@@ -57,7 +69,7 @@
 				<div>
 					<input
 						type='text'
-						placeholder='Search for artists, art pieces and more...'
+						placeholder='{{#if (eq language 'nl')}} Zoek op kunstenaars, kunstwerken en meer... {{else}} Search for artists, art pieces and more... {{/if}}'
 						name='userInput'
 						autocomplete='off'
 					/>

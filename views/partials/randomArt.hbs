@@ -9,8 +9,12 @@
 		</div>
 	</section>
 	<form method='get'>
-		<button type="submit" name="fetchRandomArt">
-			<p>Generate a random art piece</p>
+		<button type='submit' name='fetchRandomArt'>
+			{{#if (eq language 'nl')}}
+				<p>Genereer een willekeurig kunstwerk</p>
+			{{else}}
+				<p>Generate a random art piece</p>
+			{{/if}}
 			<img
 				draggable='false'
 				src='/uploads/arrow-right.svg'

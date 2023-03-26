@@ -2,24 +2,15 @@
 <section class='language'>
 	<form action='/language' method='post'>
 		<label>
-			{{#if (eq language 'en')}}
-				<input type='radio' name='language' value='en' checked />
-			{{else}}
-				<input type='radio' name='language' value='en' />
-			{{/if}}
-
+			<input type='radio' name='language' value='en' {{#if (eq language 'en')}} checked {{/if}}>
 			<img draggable='false' src='/uploads/gb.svg' alt='gb flag' />
 		</label>
 		<label>
-			{{#if (eq language 'nl')}}
-				<input type='radio' name='language' value='nl' checked />
-			{{else}}
-				<input type='radio' name='language' value='nl' />
-			{{/if}}
+			<input type='radio' name='language' value='nl' {{#if (eq language 'nl')}} checked {{/if}}>
 			<img draggable='false' src='/uploads/ned.svg' alt='nl flag' />
 		</label>
-		<input type='submit' value='Save language' />
+		<input type='submit' value='Save' />
 	</form>
 
-	<a href='/colorfilter' data-before='Color filter for Sanne'></a>
+	<a href='/colorfilter' data-before='{{#if (eq language 'nl')}} Kleurfilter voor Sanne {{else}} Color filter for Sanne {{/if}}'></a>
 </section>

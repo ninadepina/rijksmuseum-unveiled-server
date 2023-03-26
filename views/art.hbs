@@ -9,7 +9,11 @@
 	<section class='searchArea'>
 		<form action='/art' method='get'>
 			<section>
-				<p>Amount of results:</p>
+				{{#if (eq language 'nl')}}
+					<p>Hoeveelheid resultaten:</p>
+				{{else}}
+					<p>Amount of results:</p>
+				{{/if}}
 				<fieldset>
 					{{#if (eq resultCount '30')}}
 						<input type='radio' name='resultCount' id='option-1' value='10' />
