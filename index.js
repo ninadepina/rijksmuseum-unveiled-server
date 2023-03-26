@@ -3,10 +3,11 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { engine } from 'express-handlebars';
 import routes from './routes/routes.js';
+import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
+dotenv.config();
 
 const app = express();
-// https://flaviocopes.com/fix-dirname-not-defined-es-module-scope/
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
