@@ -1,6 +1,6 @@
 /* ------------------------------------- */
 /* first load animation */
-.loadingBanner {
+/* .loadingBanner {
 	background-color: var(--color-dark);
 	position: absolute;
 	top: 0;
@@ -44,11 +44,11 @@
 		width: calc(100vw - 0.4em);
 		height: calc(100vh - 0.4em);
 	}
-}
+} */
 
 /* ------------------------------------- */
 /* skeleton loader */
-.generateRandomArt section > div.skeletonLoader,
+/* .generateRandomArt section > div.skeletonLoader,
 .generateRandomArt section > div p.skeletonLoader,
 .generateRandomArt section > div h2.skeletonLoader {
 	background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
@@ -75,11 +75,11 @@
 	to {
 		background-position-x: -300%;
 	}
-}
+} */
 
 /* ------------------------------------- */
 /* color filter loader */
-.colorFilter > div {
+/* .colorFilter > div {
 	display: none;
 	align-items: center;
 	gap: 0.2em;
@@ -114,4 +114,4 @@
 	90% {
 		opacity: 1;
 	}
-}
+} */
