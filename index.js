@@ -3,8 +3,8 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { engine } from 'express-handlebars';
 import routes from './routes/routes.js';
-import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
+import dotenv from 'dotenv';
 dotenv.config();
 
 const app = express();
