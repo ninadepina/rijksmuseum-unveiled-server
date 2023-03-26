@@ -6,6 +6,7 @@ const router = express.Router();
 router.get('/', async (req, res) => {
 	let randomArt;
     const resultCount = req.cookies.resultCount || req.query.resultCount;
+	res.cookie('resultCount', resultCount);
 	const userInput = req.query.userInput;
 	const language = req.cookies.language || 'en';
 
@@ -18,12 +19,6 @@ router.get('/', async (req, res) => {
 	randomArt = await fetchRandomArt();
 
 	res.render('art', { css: ['views/normalView'], language, artItem, userInput, resultCount, randomArt });
-});
-
-router.post('/', (req, res) => {
-    const resultCount = req.query.resultCount;
-	res.cookie('resultCount', resultCount);
-	res.redirect('/');
 });
 
 export default router;
