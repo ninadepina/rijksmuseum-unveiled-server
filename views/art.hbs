@@ -11,9 +11,20 @@
 			<section>
 				<p>Amount of results:</p>
 				<fieldset>
-					<input type='radio' name='resultCount' id='option-1' value='10' checked />
-					<input type='radio' name='resultCount' id='option-2' value='20' />
-					<input type='radio' name='resultCount' id='option-3' value='30' />
+
+					{{#if (eq resultCount '30')}}
+						<input type='radio' name='resultCount' id='option-1' value='10' />
+						<input type='radio' name='resultCount' id='option-2' value='20' />
+						<input type='radio' name='resultCount' id='option-3' value='30' checked />
+					{{else if (eq resultCount '20')}}
+						<input type='radio' name='resultCount' id='option-1' value='10' />
+						<input type='radio' name='resultCount' id='option-2' value='20' checked />
+						<input type='radio' name='resultCount' id='option-3' value='30' />
+					{{else}}
+						<input type='radio' name='resultCount' id='option-1' value='10' checked />
+						<input type='radio' name='resultCount' id='option-2' value='20' />
+						<input type='radio' name='resultCount' id='option-3' value='30' />
+					{{/if}}
 
 					<label for='option-1'>
 						<div></div>
