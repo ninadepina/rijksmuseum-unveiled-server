@@ -43,7 +43,7 @@ const fetchRandomArt = async () => {
 }
 
 const fetchColorData = async (color) => {
-	color = color.toUpperCase();
+	if (color) color = color.toUpperCase();
     let data;
     const url = `https://www.rijksmuseum.nl/api/en/collection?key=${process.env.API_KEY}&ps=100&imgonly=true&f.normalized32Colors.hex=%20%23${color}`;
 
