@@ -15,7 +15,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.engine('handlebars', engine());
 app.engine(
 	'hbs',
 	engine({
