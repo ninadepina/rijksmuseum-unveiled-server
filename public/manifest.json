@@ -6,6 +6,7 @@
     "start_url": "/",
     "short_name": "Rijks Unveiled",
     "name": "Rijksmuseum Unveiled Server",
+    "description": "'Rijksmuseum Unveiled Server' is a Single Page Application that let's you explore the Rijksmuseum's collection. You can search for artworks, artists and get more information about them.",
     "icons": [
         {
             "src": "/uploads/icon-192x192.png",
