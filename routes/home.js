@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
 	if (req.cookies.resultCount) res.clearCookie('resultCount');
 	if (req.cookies.userInput) res.clearCookie('userInput');
 
-	const language = req.cookies.language;
+	const language = req.cookies.language || 'en';
 
 	let randomArt;
 	if (req.query['fetchRandomArt']) {
