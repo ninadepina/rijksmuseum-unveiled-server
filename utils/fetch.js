@@ -29,7 +29,7 @@ const fetchDataIndividual = async (id, language) => {
 };
 
 // fetching a random art piece from the Rijkmuseum API
-const fetchRandomArt = async () => {
+const fetchRandomArt = async (language) => {
 	let data;
 	let randomNumber;
 	const url = `https://www.rijksmuseum.nl/api/${language}/collection?key=${process.env.API_KEY}&ps=100&imgonly=true`;
