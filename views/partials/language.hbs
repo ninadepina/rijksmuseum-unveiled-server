@@ -1,11 +1,11 @@
 <!-- (5)[desktop: language section] -->
 <section class='language'>
 	<form action='/language' method='post'>
-		<label>
+		<label tabindex='0'>
 			<input type='radio' name='language' value='en' {{#if (eq language 'en')}} checked {{/if}}>
 			<img draggable='false' src='/uploads/gb.svg' alt='gb flag' />
 		</label>
-		<label>
+		<label tabindex='0'>
 			<input type='radio' name='language' value='nl' {{#if (eq language 'nl')}} checked {{/if}}>
 			<img draggable='false' src='/uploads/ned.svg' alt='nl flag' />
 		</label>
