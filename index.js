@@ -6,7 +6,7 @@ import routes from './routes/routes.js';
 import helpers from './utils/helpers.js';
 import cookieParser from 'cookie-parser';
 import compression from 'compression';
-import dotenv from 'dotenv';
+import * as dotenv from 'dotenv';
 dotenv.config();
 
 const app = express();
