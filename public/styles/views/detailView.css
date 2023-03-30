@@ -26,9 +26,7 @@
 	background-color: var(--color-dark);
 	transition: width 0.3s;
 }
-.mainContent .artItemContainer a:hover::after,
-.mainContent .artItemContainer a:focus::after,
-.mainContent .artItemContainer a:active::after {
+.mainContent .artItemContainer a:is(:hover, :focus-visible, :active)::after {
 	width: 100%;
 }
 
