@@ -75,7 +75,14 @@
 				<li>
 					<a href='/artItem/{{this.objectNumber}}' aria-label='view details of {{this.title}}'>
 						<figure>
-							<img src='{{this.webImage.url}}' alt='{{this.longTitle}}' />
+							<img
+								srcset='{{sliceUrl this.webImage.url}}=s500 500w, {{sliceUrl
+									this.webImage.url
+								}}=s750 750w, {{sliceUrl this.webImage.url}}=s1000 1000w'
+								sizes='(max-width: 600px) 500px, (max-width: 1000px) 750px, 1000px'
+								src='{{sliceUrl this.webImage.url}}=s750'
+								alt='{{this.longTitle}}'
+							/>
 						</figure>
 						<div>
 							<h2>{{this.title}}</h2>

@@ -1,7 +1,14 @@
 <!-- (2)[desktop: generate random art section] -->
 <section class='generateRandomArt'>
 	<section>
-		<img src='{{randomArt.webImage.url}}' alt='{{randomArt.longTitle}}' />
+		<img
+			srcset='{{sliceUrl randomArt.webImage.url}}=s500 500w, {{sliceUrl
+				randomArt.webImage.url
+			}}=s750 750w, {{sliceUrl randomArt.webImage.url}}=s1000 1000w'
+			sizes='(max-width: 600px) 500px, (max-width: 1000px) 750px, 1000px'
+			src='{{sliceUrl randomArt.webImage.url}}=s750'
+			alt='{{randomArt.longTitle}}'
+		/>
 		<div></div>
 		<div>
 			<h2>{{randomArt.title}}</h2>

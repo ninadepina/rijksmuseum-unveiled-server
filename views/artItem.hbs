@@ -5,7 +5,14 @@
 	<article class='artItemContainer'>
 		<a href='/art'>< back to all results</a>
 		<div>
-			<img src='{{artData.webImage.url}}' alt='{{artData.longTitle}}' />
+			<img
+				srcset='{{sliceUrl artData.webImage.url}}=s500 500w, {{sliceUrl
+					artData.webImage.url
+				}}=s750 750w, {{sliceUrl artData.webImage.url}}=s1000 1000w'
+				sizes='(max-width: 600px) 500px, (max-width: 1000px) 750px, 1000px'
+				src='{{sliceUrl artData.webImage.url}}=s750'
+				alt='{{artData.longTitle}}'
+			/>
 			<div>
 				<h2>{{artData.title}}</h2>
 				<p>{{artData.principalOrFirstMaker}}</p>
