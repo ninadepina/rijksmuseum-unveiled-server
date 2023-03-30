@@ -15,6 +15,10 @@ const __dirname = path.dirname(__filename);
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(/.*-[0-9a-f]{10}\..*/, (req, res, next) => {
+	res.setHeader('Cache-Control', 'max-age=365000000, immutable');
+	next();
+});
 
 app.engine(
 	'hbs',
