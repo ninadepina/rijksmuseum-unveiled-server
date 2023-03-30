@@ -3,6 +3,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { engine } from 'express-handlebars';
 import routes from './routes/routes.js';
+import helpers from './utils/helpers.js';
 import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
 dotenv.config();
@@ -22,14 +23,7 @@ app.engine(
 		partialsDir: `${path.join(__dirname)}/views/partials`,
 		defaultLayout: 'main',
 		extname: '.hbs',
-		helpers: {
-			eq: function (a, b) {
-				return a === b;
-			},
-			sliceUrl: function (url) {
-				return url.slice(0, -3);
-			}
-		}
+		helpers: { ...helpers }
 	})
 );
 app.set('view engine', 'hbs');
