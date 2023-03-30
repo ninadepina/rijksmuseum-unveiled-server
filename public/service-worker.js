@@ -24,14 +24,30 @@ self.addEventListener('activate', (e) => {
 	e.waitUntil(clients.claim());
 });
 
-// self.addEventListener('fetch', (e) => {
-//     console.log('fetching');
-//     e.respondWith(
-//         caches.match(e.request).then(function (response) {
-//             if (response) {
-//                 return response;
-//             }
-//             return fetch(e.request);
-//         }).catch(() => caches.match('/offline'))
-//     );
-// });
+self.addEventListener('fetch', (e) => {
+	console.log('fetch event: ', e.request.url);
+
+	// skip caching for non-HTTP/HTTPS resources
+	if (!/^https?:\/\//i.test(e.request.url)) {
+		console.log('skipping caching for non-HTTP/HTTPS resource');
+		return fetch(e.request);
+	}
+
+	e.respondWith(
+		fetch(e.request)
+			.then((response) => {
+				// only cache responses when the network is available
+				if (response.status === 200 || response.type === 'opaque') {
+					const responseClone = response.clone();
+					caches.open(CORE_CACHE_VERSION).then((cache) => {
+						cache.put(e.request, responseClone);
+					});
+				}
+				return response;
+			})
+			.catch(() => {
+				console.log('offline, fetching offline page');
+				return caches.match('/offline');
+			})
+	);
+});
