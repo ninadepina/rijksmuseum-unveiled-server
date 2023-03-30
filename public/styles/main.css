@@ -13,14 +13,17 @@
 @font-face {
 	font-family: 'Rijks-normal';
 	src: url('../font/PannoText-Normal.ttf') format('truetype');
+	font-display: swap;
 }
 @font-face {
 	font-family: 'Rijks-normalItalic';
 	src: url('../font/PannoText-NormalItalic.ttf') format('truetype');
+	font-display: swap;
 }
 @font-face {
 	font-family: 'Rijks-bold';
 	src: url('../font/PannoText-Bold.ttf') format('truetype');
+	font-display: swap;
 }
 
 *,
