@@ -17,8 +17,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(compression());
-app.use(/.*-[0-9a-f]{10}\..*/, (req, res, next) => {
-	res.setHeader('Cache-Control', 'max-age=365000000, immutable');
+app.use(function (req, res, next) {
+	if (req.method == 'GET' && !req.rawHeaders.toString().includes('text/html'))
+		res.set('Cache-control', 'public, max-age=31536000');
 	next();
 });
 
