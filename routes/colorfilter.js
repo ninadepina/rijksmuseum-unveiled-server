@@ -8,11 +8,11 @@ router.get('/', async (req, res) => {
 	const language = req.cookies.language || 'en';
 
 	if (req.query['fetchRandomArt']) {
-		randomArt = await fetchRandomArt();
+		randomArt = await fetchRandomArt(language);
 	}
 
-	randomArt = await fetchRandomArt();
-	const colorData = await fetchColorData(color);
+	randomArt = await fetchRandomArt(language);
+	const colorData = await fetchColorData(color, language);
 
 	res.render('colorfilter', { css: ['views/colorFilterView', 'views/normalView'], language, randomArt, colorData });
 });

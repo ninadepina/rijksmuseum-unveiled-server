@@ -11,10 +11,10 @@ router.get('/', async (req, res) => {
 
 	let randomArt;
 	if (req.query['fetchRandomArt']) {
-		randomArt = await fetchRandomArt();
+		randomArt = await fetchRandomArt(language);
 	}
 
-	randomArt = await fetchRandomArt();
+	randomArt = await fetchRandomArt(language);
 
 	res.render('home', { css: ['views/normalView'], js: ['autocomplete/autocomplete'], language, randomArt });
 });

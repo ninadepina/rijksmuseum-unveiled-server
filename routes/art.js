@@ -18,13 +18,13 @@ router.get('/', async (req, res) => {
 		res.cookie('userInput', userInput);
 	}
 
-	const artItem = await fetchData(userInput, resultCount);
+	const artItem = await fetchData(userInput, resultCount, language);
 
 	if (req.query['fetchRandomArt']) {
-		randomArt = await fetchRandomArt();
+		randomArt = await fetchRandomArt(language);
 	}
 
-	randomArt = await fetchRandomArt();
+	randomArt = await fetchRandomArt(language);
 	// prettier-ignore
 	res.render('art', {
 		css: ['views/normalView'],
