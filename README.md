@@ -58,33 +58,33 @@ In your browser, go to `http://localhost:3000`
 - I have added `font-display: swap;` to my fonts, so that a fall-back font is loaded until the real font has been downloaded.
 ```css
 @font-face {
-	font-family: 'Rijks-normal';
-	src: url('../font/PannoText-Normal.ttf') format('truetype');
-	font-display: swap;
+    font-family: 'Rijks-normal';
+    src: url('../font/PannoText-Normal.ttf') format('truetype');
+    font-display: swap;
 }
 ```
 
 - I converted the loading of the images to `srcset`. As a result, the browser determines which image is loaded, so that this is the best performance for the website.
 ```html
 {{#each artItem}}
-	<li>
-		<a href='/artItem/{{this.objectNumber}}' aria-label='view details of {{this.title}}'>
-			<figure>
-				<img
-					srcset='{{sliceUrl this.webImage.url}}=s500 500w, 
+    <li>
+        <a href='/artItem/{{this.objectNumber}}' aria-label='view details of {{this.title}}'>
+	    <figure>
+		<img
+		    srcset='{{sliceUrl this.webImage.url}}=s500 500w, 
                     {{sliceUrl this.webImage.url}}=s750 750w, 
                     {{sliceUrl this.webImage.url}}=s1000 1000w'
-					sizes='(max-width: 600px) 500px, (max-width: 1000px) 750px, 1000px'
-					src='{{sliceUrl this.webImage.url}}=s750'
-					alt='{{this.longTitle}}'
-				/>
-			</figure>
-			<div>
-				<h2>{{this.title}}</h2>
-				<p>{{this.principalOrFirstMaker}}</p>
-			</div>
-		</a>
-	</li>
+		    sizes='(max-width: 600px) 500px, (max-width: 1000px) 750px, 1000px'
+ 		    src='{{sliceUrl this.webImage.url}}=s750'
+		    alt='{{this.longTitle}}'
+		/>
+	    </figure>
+	    <div>
+		<h2>{{this.title}}</h2>
+		<p>{{this.principalOrFirstMaker}}</p>
+	    </div>
+	</a>
+    </li>
 {{/each}}
 ```
 The helper that I created for this is:
@@ -97,15 +97,21 @@ sliceUrl: function (url) {
 - Added cache control to the application
 ```javascript
 app.use(/.*-[0-9a-f]{10}\..*/, (req, res, next) => {
-	res.setHeader('Cache-Control', 'max-age=365000000, immutable');
-	next();
+    res.setHeader('Cache-Control', 'max-age=365000000, immutable');
+    next();
 });
+```
+
+- Added compression
+```javascript
+import compression from 'compression';
+app.use(compression());
 ```
 
 ---
 
 ## 📈 Activity diagram
-
+![activity diagram](https://user-images.githubusercontent.com/89778503/230193906-b273ccb5-d6cd-4d71-94d3-161fe605d7f7.png)
 
 ---
 
