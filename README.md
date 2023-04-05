@@ -104,6 +104,11 @@ app.use(/.*-[0-9a-f]{10}\..*/, (req, res, next) => {
 
 ---
 
+## 📈 Activity diagram
+
+
+---
+
 ## 👁️ Demo
 
 ---
