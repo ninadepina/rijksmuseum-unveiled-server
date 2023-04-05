@@ -47,8 +47,60 @@ $ npm i
 5. Run the server
 ```
 $ npm run start
+// or when wanting to use nodemon
+$ npm run start:dev
 ```
 In your browser, go to `http://localhost:3000`
+
+---
+
+## 💨 Optimizations
+- I have added `font-display: swap;` to my fonts, so that a fall-back font is loaded until the real font has been downloaded.
+```css
+@font-face {
+	font-family: 'Rijks-normal';
+	src: url('../font/PannoText-Normal.ttf') format('truetype');
+	font-display: swap;
+}
+```
+
+- I converted the loading of the images to `srcset`. As a result, the browser determines which image is loaded, so that this is the best performance for the website.
+```html
+{{#each artItem}}
+	<li>
+		<a href='/artItem/{{this.objectNumber}}' aria-label='view details of {{this.title}}'>
+			<figure>
+				<img
+					srcset='{{sliceUrl this.webImage.url}}=s500 500w, 
+                    {{sliceUrl this.webImage.url}}=s750 750w, 
+                    {{sliceUrl this.webImage.url}}=s1000 1000w'
+					sizes='(max-width: 600px) 500px, (max-width: 1000px) 750px, 1000px'
+					src='{{sliceUrl this.webImage.url}}=s750'
+					alt='{{this.longTitle}}'
+				/>
+			</figure>
+			<div>
+				<h2>{{this.title}}</h2>
+				<p>{{this.principalOrFirstMaker}}</p>
+			</div>
+		</a>
+	</li>
+{{/each}}
+```
+The helper that I created for this is:
+```javascript
+sliceUrl: function (url) {
+    return (url || []).slice(0, -3);
+}
+```
+
+- Added cache control to the application
+```javascript
+app.use(/.*-[0-9a-f]{10}\..*/, (req, res, next) => {
+	res.setHeader('Cache-Control', 'max-age=365000000, immutable');
+	next();
+});
+```
 
 ---
 
