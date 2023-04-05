@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Rijksmuseum Unveiled | offline</title>
+
+		<link rel="icon" type="image/x-icon" href="/uploads/favicon.ico" />
+	</head>
+
+	<style>
+		@font-face {
+			font-family: 'Rijks-normal';
+			src: url('../font/PannoText-Normal.ttf') format('truetype');
+			font-display: swap;
+		}
+
+		*,
+		*::after,
+		*::before {
+			box-sizing: border-box;
+			outline: none;
+		}
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		*::selection {
+			background-color: var(--color-dark);
+			color: var(--color-light);
+		}
+
+		:root {
+			--color-dark: #0f0f0f;
+			--color-light: #fff;
+			--font-normal: 'Rijks-normal', sans-serif;
+			--border-radius: 10px;
+			--standard-padding: 2em;
+		}
+
+		body {
+			height: 100%;
+			min-height: 100vh;
+		}
+
+		/* prettier-ignore */
+		h1, h2, p, a, div, span, button, input {
+            font-family: var(--font-normal);
+            font-weight: normal;
+        }
+		/* h1 only for semantic value and screenreaders */
+		h1 {
+			position: absolute;
+			left: -10000px;
+			top: auto;
+			width: 1px;
+			height: 1px;
+		}
+
+		main {
+			padding: 0.8em;
+		}
+		main > img {
+			width: 100%;
+			margin-bottom: var(--standard-padding);
+		}
+
+		main > section {
+            display: flex;
+            flex-direction: column;
+            gap: 1.6em;
+		}
+
+		div {
+			display: flex;
+			align-items: center;
+			gap: 0.8em;
+		}
+
+		section > section {
+			width: 100%;
+			padding: var(--standard-padding);
+			border: 1px solid var(--color-dark);
+			border-radius: var(--border-radius);
+		}
+
+		button {
+			height: 1.6em;
+			padding: 0 0.8em;
+			font-size: 0.9em;
+			line-height: 1.7em;
+			color: var(--color-light);
+			background-color: var(--color-dark);
+			outline: 1px solid var(--color-dark);
+			border: none;
+			border-radius: 6px;
+			transition: 0.5s;
+            cursor: pointer;
+		}
+        button:is(:hover, :focus-visible, :active) {
+            background-color: var(--color-light);
+            color: var(--color-dark);
+        }
+
+		@media only screen and (min-width: 1000px) {
+			body {
+				padding: 0.4em;
+				background-color: var(--color-dark);
+			}
+			main {
+				height: calc(100vh - 0.8em);
+				padding: var(--standard-padding);
+				background-color: var(--color-light);
+				border-radius: var(--border-radius);
+			}
+		}
+	</style>
+
+	<body>
+		<main>
+			<h1>Rijksmuseum Unveiled offline page</h1>
+			<img draggable="false" src="/uploads/banner.png" alt="Rijksmuseum logo" />
+			<section>
+				<h2>It looks like your network is currently unavailable...</h2>
+				<div>
+					<p>Try generating a random fact:</p>
+					<button onclick="generateFact()">Generate fact</button>
+				</div>
+				<section>
+					<p class="fact">
+						In 2018, the museum had to issue a public apology after a group of American tourists were caught
+						attempting to cook a meal using a portable stove in the museum's courtyard. The tourists, who
+						were reportedly unaware that cooking was not allowed on the premises, had been attempting to
+						make tea when they were caught by security.
+					</p>
+				</section>
+			</section>
+		</main>
+	</body>
+
+	<script>
+		const generateFact = () => {
+			const factContainer = document.querySelector('.fact');
+			const randomFact = rijksmuseumFacts[Math.floor(Math.random() * rijksmuseumFacts.length)];
+			factContainer.textContent = randomFact;
+		};
+
+		const rijksmuseumFacts = [
+			'The museum was founded in 1800 in The Hague but was moved to Amsterdam in 1808 and opened to the public in 1885.',
+			'The Rijksmuseum has over 8,000 objects on display, including masterpieces by Rembrandt, Vermeer, and Van Gogh.',
+			"One of the most famous works in the museum's collection is Rembrandt's 'The Night Watch,' which is displayed in a specially designed room called the 'Gallery of Honour.'",
+			"Another notable painting in the collection is Vermeer's 'The Milkmaid,' which is considered one of the finest examples of Dutch Golden Age painting.",
+			"The museum's collection also includes ancient artifacts, such as Egyptian sarcophagi and Greek and Roman sculptures.",
+			'The Rijksmuseum has a research library with over 350,000 volumes and is open to the public.',
+			'The museum underwent a ten-year renovation from 2003 to 2013, which cost €375 million.',
+			"Vincent van Gogh, who is not represented in the Rijksmuseum's permanent collection, did visit the museum in his lifetime and was inspired by some of the artworks on display.",
+			"The Rijksmuseum's collection includes several pieces of furniture designed by the famous Dutch architect and designer Gerrit Rietveld.",
+			'The Rijksmuseum has a collection of over 1 million objects, including paintings, prints, drawings, and historical artifacts.',
+			'The museum has a special exhibition space called the Philips Wing, which hosts temporary exhibitions on a variety of topics.',
+			"One of the most popular works in the museum's collection is Johannes Vermeer's 'Girl with a Pearl Earring,' which is often referred to as the 'Dutch Mona Lisa.'",
+			"The Rijksmuseum has a large collection of paintings by Rembrandt, including 'The Jewish Bride,' 'The Anatomy Lesson of Dr. Nicolaes Tulp,' and 'Self-Portrait with Two Circles.'",
+			"The museum's collection also includes works by other notable Dutch Golden Age painters, such as Frans Hals, Jan Steen, and Jacob van Ruisdael.",
+			'The Rijksmuseum has a collection of Asian art, including Chinese porcelain, Japanese prints, and Indonesian textiles.',
+			'The museum has a restoration department that is responsible for the conservation and restoration of the artworks in the collection.',
+			'The Rijksmuseum has a large garden, which is open to the public and contains sculptures, fountains, and a playground for children.',
+			'The museum has a digital collection, which allows visitors to view high-resolution images of the artworks in the collection online.',
+			"The Rijksmuseum has a collection of musical instruments, including harpsichords, organs, and pianos, which are occasionally played in concerts held in the museum's auditorium.",
+			'The Rijksmuseum has a collection of artworks that were either stolen or looted during World War II, and the museum actively works to return these works to their rightful owners. In 2018, the museum returned a 16th-century painting to the heirs of a Jewish art collector who had been forced to sell it to the Nazis.',
+			"In 2015, a group of elderly Dutch women who called themselves the 'Rijksmuseum guards' began to patrol the museum in an effort to keep visitors in line. Dressed in homemade uniforms, the women would approach visitors who were touching the artwork or behaving inappropriately and politely remind them of the museum's rules."
+		];
+
+		generateFact();
+	</script>
+</html>
