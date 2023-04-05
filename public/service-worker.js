@@ -1,11 +1,11 @@
 const CORE_CACHE_VERSION = 'v1';
 // prettier-ignore
 const CORE_ASSETS = [
-    '/',
-    '/offline',
-    '/styles/main.css',
-    '/styles/views/normalView.css',
-    '/favicon.ico'
+    '/offline.html',
+	'/font/PannoText-Normal.ttf',
+	'/uploads/banner.png',
+    '/uploads/favicon.ico',
+	'/manifest.json'
 ];
 
 self.addEventListener('install', (e) => {
@@ -13,7 +13,7 @@ self.addEventListener('install', (e) => {
 
 	e.waitUntil(
 		caches.open(CORE_CACHE_VERSION).then(function (cache) {
-			console.log('Opened cache');
+			console.log('opened cache');
 			return cache.addAll(CORE_ASSETS);
 		})
 	);
@@ -47,7 +47,7 @@ self.addEventListener('fetch', (e) => {
 			})
 			.catch(() => {
 				console.log('offline, fetching offline page');
-				return caches.match('/offline');
+				return caches.match('/offline.html');
 			})
 	);
 });

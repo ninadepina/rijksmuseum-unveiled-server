@@ -270,6 +270,7 @@ main h2 {
 	}
 	.mainContent .staticInfo header img {
 		width: 90%;
+		height: auto;
 	}
 	.mainContent .staticInfo header div {
 		display: none;
