@@ -1,5 +1,5 @@
 import fetch from 'node-fetch';
-import * as dotenv from 'dotenv';
+import dotenv from 'dotenv';
 dotenv.config();
 
 // fetching data from the Rijkmuseum API based on user input
