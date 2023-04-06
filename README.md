@@ -54,6 +54,30 @@ In your browser, go to `http://localhost:3000`
 
 ---
 
+## ⏳ Rendering
+
+### Client side rendering
+With client side rendering, all content is rendered in the user's browser. As a result, everything is loaded to 1 HTML file and the content is only displayed when everything is loaded. This is only beneficial for users with fast internet connections. The browser renders all content in the user's browser.
+
+### Server side rendering
+With server-side rendering, the content is rendered on the server. All content of a page, including the data, is rendered on the server of the website. As a result, the user will not see half-loaded websites if the connection is not good. Rendering is done on the server, so the user's connection doesn't matter.
+
+---
+
+## 🏋🏻‍♀️ Service worker
+The service worker ensures that certain files are cached. As a result, these files are also available when there is no internet connection. The files that are cached are:
+```javascript
+const CORE_ASSETS = [
+    '/offline.html',
+	'/font/PannoText-Normal.ttf',
+	'/uploads/banner.png',
+    '/uploads/favicon.ico',
+	'/manifest.json'
+];
+```
+
+---
+
 ## 💨 Optimizations
 - I have added `font-display: swap;` to my fonts, so that a fall-back font is loaded until the real font has been downloaded.
 ```css
