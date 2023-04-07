@@ -39,8 +39,10 @@ app.set('views', './views');
 // language cookie
 app.post('/language', (req, res) => {
 	const language = req.body.language || 'en';
-	res.cookie('language', language);
-	res.redirect('/');
+	const cookieValue = `language=${language}; path=/;`;
+	res.set('Set-Cookie', cookieValue);
+	res.set('Location', `/?${Date.now()}`);
+	res.status(302).send();
 });
 
 // routes
