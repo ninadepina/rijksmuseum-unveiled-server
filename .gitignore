@@ -1,4 +1,12 @@
+# Other
 .DS_Store
+/static
+
+# Dependency directories
 node_modules
+
+# dotenv environment variables file
 .env
+
+# Vscode directories
 .vscode/*
