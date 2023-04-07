@@ -1,6 +1,7 @@
 const CORE_CACHE_VERSION = 'v1';
 // prettier-ignore
 const CORE_ASSETS = [
+	'/',
     '/offline.html',
 	'/font/PannoText-Normal.ttf',
 	'/static/uploads/banner.png',

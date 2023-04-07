@@ -13,11 +13,7 @@
 		<link rel='manifest' href='../manifest.json' />
 		<title>Rijksmuseum Unveiled</title>
 		<link rel='icon' type='image/x-icon' href='/static/uploads/favicon.ico' />
-		<link rel='stylesheet' href='/static/index.css' />
-		{{!-- <link rel='stylesheet' href='/styles/main.css' />
-		{{#each css}}
-			<link rel='stylesheet' href='/styles/{{this}}.css' type='text/css' />
-		{{/each}} --}}
+		<link rel='preload stylesheet' href='/static/index.css' as="style" type="text/css" />
 		{{#each js}}
 			<script src='/static/{{this}}.js' type='module'></script>
 		{{/each}}
