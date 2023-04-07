@@ -1,28 +1,19 @@
-/* @import url(./views/colorFilterView.css); */
-/* @import url(./views/detailView.css); */
-/* @import url(./views/errorView.css); */
 @import url(./views/generateRandomArt.css);
-/* @import url(./views/normalView.css); */
 @import url(./views/staticInfo.css);
-
-@import url(./partials/footer.css);
-
-@import url(./utils/loadingAnimations.css);
-@import url(./utils/prefers-reduced-motion.css);
 
 @font-face {
 	font-family: 'Rijks-normal';
-	src: url('../font/PannoText-Normal.ttf') format('truetype');
+	src: url('../../static/PannoText-Normal.ttf') format('truetype');
 	font-display: swap;
 }
 @font-face {
 	font-family: 'Rijks-normalItalic';
-	src: url('../font/PannoText-NormalItalic.ttf') format('truetype');
+	src: url('../../static/PannoText-NormalItalic.ttf') format('truetype');
 	font-display: swap;
 }
 @font-face {
 	font-family: 'Rijks-bold';
-	src: url('../font/PannoText-Bold.ttf') format('truetype');
+	src: url('../../static/PannoText-Bold.ttf') format('truetype');
 	font-display: swap;
 }
 
@@ -170,5 +161,12 @@ strong {
 	/* (5)[desktop: language section] */
 	.language {
 		order: 3;
+	}
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+	.mainContent .loadingData img:hover {
+		transform: none !important;
 	}
 }

@@ -3,8 +3,8 @@ const CORE_CACHE_VERSION = 'v1';
 const CORE_ASSETS = [
     '/offline.html',
 	'/font/PannoText-Normal.ttf',
-	'/uploads/banner.png',
-    '/uploads/favicon.ico',
+	'/static/uploads/banner.png',
+    '/static/uploads/favicon.ico',
 	'/manifest.json'
 ];
 
