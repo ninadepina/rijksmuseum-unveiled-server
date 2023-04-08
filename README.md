@@ -50,7 +50,7 @@ $ npm run start
 // or when wanting to use nodemon
 $ npm run start:dev
 ```
-In your browser, go to `http://localhost:3000`
+In your browser, go to `http://localhost:3000` (you can change the localhost PORT in the .env file)
 
 ---
 
@@ -65,16 +65,7 @@ With server-side rendering, the content is rendered on the server. All content o
 ---
 
 ## 🏋🏻‍♀️ Service worker
-The service worker ensures that certain files are cached. As a result, these files are also available when there is no internet connection. The files that are cached are:
-```javascript
-const CORE_ASSETS = [
-    '/offline.html',
-	'/font/PannoText-Normal.ttf',
-	'/uploads/banner.png',
-    '/uploads/favicon.ico',
-	'/manifest.json'
-];
-```
+The service worker ensures that certain files are cached. As a result, these files are also available when there is no internet connection.
 
 ---
 
@@ -140,8 +131,9 @@ app.use(compression());
 ---
 
 ## 👁️ Demo
+[reindeer-dirndl.cyclic.app](https://reindeer-dirndl.cyclic.app/)
 
 ---
 
 ## 📄 License
-This project is licensed under the MIT License - see the `LICENSE` file for more details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/ninadepina/rijksmuseum-unveiled-server/blob/main/LICENSE) file for more details.
