@@ -39,9 +39,9 @@ app.set('views', './views');
 // language cookie
 app.post('/language', (req, res) => {
 	const language = req.body.language || 'en';
-	const cookieValue = `language=${language}; path=/;`;
+	const cookieValue = `language=${language}; path=/; SameSite=None; Secure`;
 	res.set('Set-Cookie', cookieValue);
-	res.set('Location', `/?${Date.now()}`);
+	res.set('Location', '/');
 	res.status(302).send();
 });
 

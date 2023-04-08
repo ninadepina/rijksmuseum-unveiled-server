@@ -73,20 +73,12 @@ function fetchAndCache(request, cacheName) {
 	});
 }
 
-// function isHtmlGetRequest(request) {
-// 	return (
-// 		request.method === 'GET' &&
-// 		request.headers.get('accept') !== null &&
-// 		(request.headers.get('accept').indexOf('text/html') > -1 || request.url === self.location.origin + '/')
-// 	);
-// }
 function isHtmlGetRequest(request) {
-	// Check of de request een html pagina is
 	return (
 		request.method === 'GET' &&
 		request.headers.get('accept') !== null &&
 		request.headers.get('accept').indexOf('text/html') > -1
-	); // Als de request een GET request is en de accept header een html pagina is, wordt true gereturned
+	);
 }
 
 function isCoreGetRequest(request) {
