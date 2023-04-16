@@ -2,7 +2,7 @@ import gulp from 'gulp';
 
 (() => {
   return gulp.src([
-    './public/font/**/*.*',
+    './src/font/**/*.*',
   ])
     .pipe(gulp.dest('./static/'))
 })();

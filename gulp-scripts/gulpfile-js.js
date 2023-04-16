@@ -3,7 +3,7 @@ import uglify from 'gulp-uglify';
 
 (() => {
 	return gulp
-        .src(['./public/scripts/**/*.js'])
+        .src(['./src/scripts/**/*.js'])
         .pipe(uglify())
         .pipe(gulp.dest('./static/'));
 })();

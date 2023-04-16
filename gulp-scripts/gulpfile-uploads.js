@@ -2,7 +2,7 @@ import gulp from 'gulp';
 
 (() => {
   return gulp.src([
-    './public/uploads/**/*.*',
+    './src/uploads/**/*.*',
   ])
     .pipe(gulp.dest('./static/uploads'))
 })();

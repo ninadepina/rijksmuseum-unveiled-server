@@ -5,7 +5,7 @@ import cleanCSS from 'gulp-clean-css';
 
 (() => {
 	return gulp
-		.src(['./public/styles/*.css', './public/styles/**/*.css'])
+		.src(['./src/styles/*.css', './src/styles/**/*.css'])
 		.pipe(concat(`index.css`))
 		.pipe(cleanCSS())
 		.pipe(
