@@ -16,7 +16,12 @@ router.get('/', async (req, res) => {
 
 	randomArt = await fetchRandomArt(language);
 
-	res.render('home', { css: ['views/normalView'], js: ['autocomplete/autocomplete'], language, randomArt });
+	res.render('home', {
+		css: ['views/normalView'],
+		js: ['autocomplete/autocomplete', 'fetchRandomArt'],
+		language,
+		randomArt
+	});
 });
 
 export default router;

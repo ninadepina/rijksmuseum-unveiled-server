@@ -15,8 +15,8 @@
 			<p>{{randomArt.principalOrFirstMaker}}</p>
 		</div>
 	</section>
-	<form method='get'>
-		<button aria-label="fetch a random art piece" type='submit' name='fetchRandomArt'>
+	<form id='randomArtForm'>
+		<button aria-label='fetch a random art piece' type='submit' name='fetchRandomArt'>
 			{{#if (eq language 'nl')}}
 				<p>Genereer een willekeurig kunstwerk</p>
 			{{else}}

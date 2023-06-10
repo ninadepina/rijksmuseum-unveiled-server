@@ -14,7 +14,13 @@ router.get('/', async (req, res) => {
 	randomArt = await fetchRandomArt(language);
 	const colorData = await fetchColorData(color, language);
 
-	res.render('colorfilter', { css: ['views/colorFilterView', 'views/normalView'], language, randomArt, colorData });
+	res.render('colorfilter', {
+		css: ['views/colorFilterView', 'views/normalView'],
+		js: ['fetchRandomArt'],
+		language,
+		randomArt,
+		colorData
+	});
 });
 
 export default router;
