@@ -28,7 +28,7 @@ router.get('/', async (req, res) => {
 	// prettier-ignore
 	res.render('art', {
 		css: ['views/normalView'],
-		js: ['autocomplete/autocomplete', 'scrollIntoView'],
+		js: ['autocomplete/autocomplete', 'scrollIntoView', 'generateRandomArt'],
 		language, artItem, userInput, resultCount, randomArt
 	});
 });
