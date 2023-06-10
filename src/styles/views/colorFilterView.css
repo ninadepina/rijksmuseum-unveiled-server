@@ -170,6 +170,9 @@
 		width: 38.6px;
 		height: 38.6px;
 	}
+	.colorFilter label div.active {
+		height: 52px;
+	}
 	.colorFilter label div:hover,
 	.colorFilter label div:focus-visible,
 	.colorFilter label div:active {
