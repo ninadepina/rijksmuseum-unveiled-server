@@ -3,10 +3,12 @@
 	<form action='/language' method='post'>
 		<label tabindex='0'>
 			<input type='radio' name='language' value='en' {{#if (eq language 'en')}} checked {{/if}}>
+			{{!-- <input type='radio' name='language' value='en' /> --}}
 			<img draggable='false' src='/static/uploads/gb.svg' alt='gb flag' />
 		</label>
 		<label tabindex='0'>
 			<input type='radio' name='language' value='nl' {{#if (eq language 'nl')}} checked {{/if}}>
+			{{!-- <input type='radio' name='language' value='nl' /> --}}
 			<img draggable='false' src='/static/uploads/ned.svg' alt='nl flag' />
 		</label>
 		<input type='submit' value='Save' />

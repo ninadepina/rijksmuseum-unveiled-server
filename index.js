@@ -2,12 +2,13 @@ import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { engine } from 'express-handlebars';
-import routes from './routes/routes.js';
-import helpers from './utils/helpers.js';
 import cookieParser from 'cookie-parser';
 import compression from 'compression';
 import dotenv from 'dotenv';
 dotenv.config();
+
+import routes from './routes/routes.js';
+import helpers from './utils/helpers.js';
 
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
@@ -38,18 +39,17 @@ app.set('views', './views');
 
 // language cookie
 app.post('/language', (req, res) => {
-	const language = req.body.language || 'en';
-	const cookieValue = `language=${language}; path=/; SameSite=None; Secure`;
-	res.set('Set-Cookie', cookieValue);
-	res.set('Location', '/');
-	res.status(302).send();
+	const selectedLanguage = req.body.language;
+	res.cookie('language', selectedLanguage);
+	res.redirect('/');
 });
 
 // routes
 routes.forEach((route) => {
-	app.use(route.path, route.view);
+	app.use(route.path, route.handler);
 });
 
+// port
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
 	console.log(`Server is running at http://localhost:${port}`);

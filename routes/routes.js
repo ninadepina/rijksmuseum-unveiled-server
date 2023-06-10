@@ -5,11 +5,11 @@ import colorfilter from '../routes/colorfilter.js';
 import error from '../routes/error.js';
 
 const routes = [
-	{ path: '/', view: home },
-	{ path: '/artItem', view: artItem },
-	{ path: '/art', view: art },
-	{ path: '/colorfilter', view: colorfilter },
-	{ path: '*', view: error }
+	{ path: '/artItem', handler: artItem },
+	{ path: '/art', handler: art },
+	{ path: '/colorfilter', handler: colorfilter },
+	{ path: '/', handler: home },
+	{ path: '*', handler: error }
 ];
 
 export default routes;

@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "start:dev": "nodemon index.js",
+    "start:dev": "nodemon --inspect index.js",
     "build": "npm-run-all build:*",
     "build:assets": "node gulp-scripts/gulpfile-assets.js",
     "build:css": "node gulp-scripts/gulpfile-css.js",
