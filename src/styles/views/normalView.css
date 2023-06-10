@@ -68,7 +68,7 @@ main h2 {
 .mainContent .searchArea {
 	position: sticky;
 	top: calc(0em - var(--standard-padding));
-	padding: var(--standard-padding) 0;
+	padding: var(--standard-padding) 0 0 0;
 	background-color: var(--color-light);
 	z-index: 99;
 }
@@ -227,6 +227,9 @@ main h2 {
 	color: #ffffff;
 }
 
+.loadingData {
+	padding: var(--standard-padding) 0 0 0;
+}
 .mainContent .loadingData ul {
 	display: grid;
 	gap: 3em;

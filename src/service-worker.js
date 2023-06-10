@@ -42,11 +42,39 @@ self.addEventListener('activate', (event) => {
 	event.waitUntil(clients.claim());
 });
 
+// self.addEventListener('fetch', (event) => {
+// 	// console.log('fetch event: ', event.request.url);
+// 	if (isCoreGetRequest(event.request)) {
+// 		// console.log('core get request: ', event.request.url);
+// 		event.respondWith(caches.open(CORE_CACHE_VERSION).then((cache) => cache.match(event.request.url)));
+// 	} else if (isHtmlGetRequest(event.request)) {
+// 		// console.log('html get request', event.request.cook)
+// 		event.respondWith(
+// 			caches
+// 				.open('html-cache')
+// 				.then((cache) => cache.match(event.request.url))
+// 				.then((response) => (response ? response : fetchAndCache(event.request, 'html-cache')))
+// 				.catch((e) => {
+// 					return caches.open(CORE_CACHE_VERSION).then((cache) => cache.match('/offline.html'));
+// 				})
+// 		);
+// 	}
+// });
 self.addEventListener('fetch', (event) => {
 	// console.log('fetch event: ', event.request.url);
 	if (isCoreGetRequest(event.request)) {
 		// console.log('core get request: ', event.request.url);
-		event.respondWith(caches.open(CORE_CACHE_VERSION).then((cache) => cache.match(event.request.url)));
+		event.respondWith(
+			fetch(event.request)
+				.then((response) => {
+					const clonedResponse = response.clone();
+					caches.open(CORE_CACHE_VERSION).then((cache) => cache.put(event.request, clonedResponse));
+					return response;
+				})
+				.catch(() => {
+					return caches.open(CORE_CACHE_VERSION).then((cache) => cache.match(event.request));
+				})
+		);
 	} else if (isHtmlGetRequest(event.request)) {
 		// console.log('html get request', event.request.cook)
 		event.respondWith(
@@ -54,7 +82,7 @@ self.addEventListener('fetch', (event) => {
 				.open('html-cache')
 				.then((cache) => cache.match(event.request.url))
 				.then((response) => (response ? response : fetchAndCache(event.request, 'html-cache')))
-				.catch((e) => {
+				.catch(() => {
 					return caches.open(CORE_CACHE_VERSION).then((cache) => cache.match('/offline.html'));
 				})
 		);

@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
 
 	res.render('home', {
 		css: ['views/normalView'],
-		js: ['autocomplete/autocomplete', 'fetchRandomArt'],
+		js: ['autocomplete/autocomplete'],
 		language,
 		randomArt
 	});

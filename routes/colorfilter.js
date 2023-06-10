@@ -16,10 +16,7 @@ router.get('/', async (req, res) => {
 
 	res.render('colorfilter', {
 		css: ['views/colorFilterView', 'views/normalView'],
-		js: ['fetchRandomArt'],
-		language,
-		randomArt,
-		colorData
+		language, randomArt, colorData
 	});
 });
 
