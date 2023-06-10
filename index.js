@@ -37,13 +37,6 @@ app.engine(
 app.set('view engine', 'hbs');
 app.set('views', './views');
 
-// language cookie
-app.post('/language', (req, res) => {
-	const selectedLanguage = req.body.language;
-	res.cookie('language', selectedLanguage);
-	res.redirect('/');
-});
-
 // routes
 routes.forEach((route) => {
 	app.use(route.path, route.handler);

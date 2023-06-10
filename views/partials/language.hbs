@@ -2,16 +2,13 @@
 <section class='language'>
 	<form action='/language' method='post'>
 		<label tabindex='0'>
-			<input type='radio' name='language' value='en' {{#if (eq language 'en')}} checked {{/if}}>
-			{{!-- <input type='radio' name='language' value='en' /> --}}
+			<input type='submit' name='language' value='en' {{#if (eq language 'en')}} class="active" {{/if}}>
 			<img draggable='false' src='/static/uploads/gb.svg' alt='gb flag' />
 		</label>
 		<label tabindex='0'>
-			<input type='radio' name='language' value='nl' {{#if (eq language 'nl')}} checked {{/if}}>
-			{{!-- <input type='radio' name='language' value='nl' /> --}}
+			<input type='submit' name='language' value='nl' {{#if (eq language 'nl')}} class="active" {{/if}}>
 			<img draggable='false' src='/static/uploads/ned.svg' alt='nl flag' />
 		</label>
-		<input type='submit' value='Save' />
 	</form>
 
 	<a href='/colorfilter' aria-label="colorfilter page" data-before='{{#if (eq language 'nl')}} Kleurfilter voor Sanne {{else}} Color filter for Sanne {{/if}}'></a>
