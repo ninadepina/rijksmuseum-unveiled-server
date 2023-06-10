@@ -16,7 +16,7 @@ router.get('/:id', async (req, res) => {
 
 	randomArt = await fetchRandomArt(language);
 
-	res.render('artItem', { css: ['views/detailView'], language, artData, randomArt });
+	res.render('artItem', { css: ['views/detailView'], language, artData, randomArt, href: `/artItem/${id}` });
 });
 
 export default router;
