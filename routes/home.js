@@ -9,18 +9,12 @@ router.get('/', async (req, res) => {
 
 	const language = req.cookies.language || 'en';
 
-	// let randomArt;
-	// if (req.query['fetchRandomArt']) {
-	// 	randomArt = await fetchRandomArt(language);
-	// }
-
 	const randomArt = await fetchRandomArt(language);
 
 	res.render('home', {
 		css: ['views/normalView'],
 		js: ['autocomplete/autocomplete'],
-		language,
-		randomArt
+		language, randomArt, href: '/',
 	});
 });
 

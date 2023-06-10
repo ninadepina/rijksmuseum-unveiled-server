@@ -40,7 +40,7 @@
 	}
 
 	/* generate random art button */
-	.generateRandomArt a[href="/"] {
+	.generateRandomArt a[href^="/"] {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -59,15 +59,15 @@
 		transition: 0.5s;
 	}
 	/* arrow img */
-	.generateRandomArt a[href="/"] img {
+	.generateRandomArt a[href^="/"] img {
 		height: 1.1em;
 	}
-	.generateRandomArt a[href="/"]:is(:hover, :focus-visible, :active) {
+	.generateRandomArt a[href^="/"]:is(:hover, :focus-visible, :active) {
 		color: var(--color-dark);
 		background-color: var(--color-light);
 		transition: 0.5s;
 	}
-	.generateRandomArt a[href="/"]:is(:hover, :focus-visible, :active) img {
+	.generateRandomArt a[href^="/"]:is(:hover, :focus-visible, :active) img {
 		filter: brightness(0);
 		transition: 0.5s;
 	}

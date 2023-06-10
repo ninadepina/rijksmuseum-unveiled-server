@@ -1,6 +1,8 @@
 const CORE_CACHE_VERSION = 'v1';
 const CORE_ASSETS = [
 	'/',
+	'/colorfilter',
+	'/art',
 	'/offline.html',
 	'/static/PannoText-Normal.ttf',
 	'/static/PannoText-NormalItalic.ttf',
@@ -42,24 +44,6 @@ self.addEventListener('activate', (event) => {
 	event.waitUntil(clients.claim());
 });
 
-// self.addEventListener('fetch', (event) => {
-// 	// console.log('fetch event: ', event.request.url);
-// 	if (isCoreGetRequest(event.request)) {
-// 		// console.log('core get request: ', event.request.url);
-// 		event.respondWith(caches.open(CORE_CACHE_VERSION).then((cache) => cache.match(event.request.url)));
-// 	} else if (isHtmlGetRequest(event.request)) {
-// 		// console.log('html get request', event.request.cook)
-// 		event.respondWith(
-// 			caches
-// 				.open('html-cache')
-// 				.then((cache) => cache.match(event.request.url))
-// 				.then((response) => (response ? response : fetchAndCache(event.request, 'html-cache')))
-// 				.catch((e) => {
-// 					return caches.open(CORE_CACHE_VERSION).then((cache) => cache.match('/offline.html'));
-// 				})
-// 		);
-// 	}
-// });
 self.addEventListener('fetch', (event) => {
 	// console.log('fetch event: ', event.request.url);
 	if (isCoreGetRequest(event.request)) {

@@ -4,7 +4,6 @@ import { fetchData, fetchRandomArt } from '../utils/fetch.js';
 const router = express.Router();
 
 router.get('/', async (req, res) => {
-	let randomArt;
 	const language = req.cookies.language || 'en';
 	let resultCount = req.cookies.resultCount || req.query.resultCount;
 	let userInput = req.cookies.userInput || req.query.userInput;
@@ -19,17 +18,13 @@ router.get('/', async (req, res) => {
 	}
 
 	const artItem = await fetchData(userInput, resultCount, language);
+	const randomArt = await fetchRandomArt(language);
 
-	if (req.query['fetchRandomArt']) {
-		randomArt = await fetchRandomArt(language);
-	}
-
-	randomArt = await fetchRandomArt(language);
 	// prettier-ignore
 	res.render('art', {
 		css: ['views/normalView'],
 		js: ['autocomplete/autocomplete', 'scrollIntoView'],
-		language, artItem, userInput, resultCount, randomArt
+		language, artItem, userInput, resultCount, randomArt, href: '/art',
 	});
 });
 

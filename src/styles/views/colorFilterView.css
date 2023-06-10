@@ -38,14 +38,14 @@
 	background-color: transparent;
 }
 
-.colorFilter p,
+.colorFilter a,
 .colorFilter button {
 	display: inline-block;
 	font-size: 1em;
 	line-height: 1.2em;
 	cursor: pointer;
 }
-.colorFilter p::after,
+.colorFilter a::after,
 .colorFilter button::after {
 	content: '';
 	display: block;
@@ -54,9 +54,9 @@
 	background-color: var(--color-dark);
 	transition: width 0.3s;
 }
-.colorFilter p:hover::after,
-.colorFilter p:focus::after,
-.colorFilter p:active::after,
+.colorFilter a:hover::after,
+.colorFilter a:focus::after,
+.colorFilter a:active::after,
 .colorFilter button:hover::after,
 .colorFilter button:focus::after,
 .colorFilter button:active::after {
@@ -64,7 +64,7 @@
 }
 
 /* select color */
-.colorFilter input[type='radio'] {
+.colorFilter input[type='submit'] {
 	display: none;
 }
 .colorFilter form {
@@ -150,26 +150,6 @@
 	--color-value: #850085;
 }
 
-#color-1:checked:checked ~ label[for='color-1'] div,
-#color-2:checked:checked ~ label[for='color-2'] div,
-#color-3:checked:checked ~ label[for='color-3'] div,
-#color-4:checked:checked ~ label[for='color-4'] div,
-#color-5:checked:checked ~ label[for='color-5'] div,
-#color-6:checked:checked ~ label[for='color-6'] div,
-#color-7:checked:checked ~ label[for='color-7'] div,
-#color-8:checked:checked ~ label[for='color-8'] div,
-#color-9:checked:checked ~ label[for='color-9'] div,
-#color-10:checked:checked ~ label[for='color-10'] div,
-#color-11:checked:checked ~ label[for='color-11'] div,
-#color-12:checked:checked ~ label[for='color-12'] div,
-#color-13:checked:checked ~ label[for='color-13'] div,
-#color-14:checked:checked ~ label[for='color-14'] div,
-#color-15:checked:checked ~ label[for='color-15'] div,
-#color-16:checked:checked ~ label[for='color-16'] div,
-#color-17:checked:checked ~ label[for='color-17'] div,
-#color-18:checked:checked ~ label[for='color-18'] div,
-#color-19:checked:checked ~ label[for='color-19'] div,
-#color-20:checked:checked ~ label[for='color-20'] div,
 .colorFilter label div:hover {
 	background-color: #fff;
 	border: 8px solid var(--color-value);
@@ -183,34 +163,16 @@
 	.mainContent:has(.colorFilter) .loadingData ul {
 		columns: 4;
 	}
-	.colorFilter p {
+	.colorFilter a {
 		margin-top: 0;
 	}
 	.colorFilter label div {
 		width: 38.6px;
 		height: 38.6px;
 	}
-	#color-1:checked:checked ~ label[for='color-1'] div,
-	#color-2:checked:checked ~ label[for='color-2'] div,
-	#color-3:checked:checked ~ label[for='color-3'] div,
-	#color-4:checked:checked ~ label[for='color-4'] div,
-	#color-5:checked:checked ~ label[for='color-5'] div,
-	#color-6:checked:checked ~ label[for='color-6'] div,
-	#color-7:checked:checked ~ label[for='color-7'] div,
-	#color-8:checked:checked ~ label[for='color-8'] div,
-	#color-9:checked:checked ~ label[for='color-9'] div,
-	#color-10:checked:checked ~ label[for='color-10'] div,
-	#color-11:checked:checked ~ label[for='color-11'] div,
-	#color-12:checked:checked ~ label[for='color-12'] div,
-	#color-13:checked:checked ~ label[for='color-13'] div,
-	#color-14:checked:checked ~ label[for='color-14'] div,
-	#color-15:checked:checked ~ label[for='color-15'] div,
-	#color-16:checked:checked ~ label[for='color-16'] div,
-	#color-17:checked:checked ~ label[for='color-17'] div,
-	#color-18:checked:checked ~ label[for='color-18'] div,
-	#color-19:checked:checked ~ label[for='color-19'] div,
-	#color-20:checked:checked ~ label[for='color-20'] div,
-	.colorFilter label div:hover {
+	.colorFilter label div:hover,
+	.colorFilter label div:focus-visible,
+	.colorFilter label div:active {
 		height: 52px;
 		background-color: var(--color-value);
 		border: none;
