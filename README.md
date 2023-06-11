@@ -179,7 +179,7 @@ app.use(compression());
 
 - Using .svg or .webp images instead of .png or .jpg images. This is because .svg and .webp images are smaller in size and therefore load faster.
 
-
+<img width="687" alt="Screenshot 2023-06-10 at 21 16 23" src="https://github.com/ninadepina/rijksmuseum-unveiled-server/assets/89778503/5d795dda-0297-455a-881f-4a03bbde207a">
 
 ---
 
