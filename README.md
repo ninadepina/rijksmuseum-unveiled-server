@@ -88,24 +88,14 @@ The service worker also includes helper functions like `isHtmlGetRequest` and `i
 
 ---
 
-## 💨 Optimizations
+## 💨 Optimizations / critical rendering path
 
-- Bundling. The process of combining multiple files or resources into a single file or package. By bundling, the number of requests made by the browser is reduced, resulting in faster load times and improved performance. Bundling can also include tasks like minification, compression, and tree shaking to further optimize the bundled output and reduce its file size. Overall, bundling is an essential technique that helps streamline web applications and enhance the user experience.
+-   Minifying and bundling are common optimization techniques used in web development to improve the performance of websites and web applications. With Gulp, a popular task runner, you can automate the process of minifying and bundling your project's JavaScript, CSS, and other assets.
 
-```js
-(() => {
-	return gulp
-		.src(['./src/styles/*.css', './src/styles/**/*.css'])
-		.pipe(concat(`index.css`))
-		.pipe(cleanCSS())
-		.pipe(
-			autoPrefixer({
-				cascade: false
-			})
-		)
-		.pipe(gulp.dest('./static/'));
-})();
-```
+Minifying (which I did for my CSS and JavaScript) involves reducing the file size of code by removing unnecessary characters, such as whitespace and comments, while preserving the functionality. This process helps to decrease the amount of data that needs to be transferred over the network, resulting in faster load times for users.
+
+Bundling (which I did for my CSS), on the other hand, involves combining multiple files into a single file, reducing the number of network requests required to fetch individual resources. This technique is particularly useful for JavaScript files, where dependencies and modules can be bundled together, improving both performance and maintainability.
+
 ```js
 "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -153,7 +143,7 @@ The service worker also includes helper functions like `isHtmlGetRequest` and `i
 {{/each}}
 ```
 
-The helper that I created for this is:
+The helper (to get the correct url) that I created for this is:
 
 ```javascript
 sliceUrl: function (url) {
@@ -161,7 +151,7 @@ sliceUrl: function (url) {
 }
 ```
 
--   Added cache control to the application
+-   Added cache control to the application. Cache control headers allow the server to control how long the client (usually a web browser) should cache certain resources. Caching resources can improve performance by reducing the number of requests made to the server.
 
 ```javascript
 app.use(/.*-[0-9a-f]{10}\..*/, (req, res, next) => {
@@ -170,14 +160,14 @@ app.use(/.*-[0-9a-f]{10}\..*/, (req, res, next) => {
 });
 ```
 
--   Added compression. A process that effectively diminishes the size of packages available on the NPM registry. This leads to expedited downloads, decreased storage demands, and reduced network bandwidth usage.
+-   Added compression, a middleware for Node.js web servers that enables response compression. It automatically compresses the HTTP responses sent by the server before they are sent back to the client. It's a technique used to reduce the size of the data transferred over the network. By compressing the response data, the 'compression' package helps to optimize the performance of web applications by reducing bandwidth usage and improving response times.
 
 ```javascript
 import compression from 'compression';
 app.use(compression());
 ```
 
-- Using .svg or .webp images instead of .png or .jpg images. This is because .svg and .webp images are smaller in size and therefore load faster.
+-   Using .svg or .webp images instead of .png or .jpg images. This is because .svg and .webp images are smaller in size and therefore load faster.
 
 <img width="687" alt="Screenshot 2023-06-10 at 21 16 23" src="https://github.com/ninadepina/rijksmuseum-unveiled-server/assets/89778503/5d795dda-0297-455a-881f-4a03bbde207a">
 
