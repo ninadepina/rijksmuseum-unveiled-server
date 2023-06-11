@@ -90,6 +90,35 @@ The service worker also includes helper functions like `isHtmlGetRequest` and `i
 
 ## 💨 Optimizations
 
+- Bundling. The process of combining multiple files or resources into a single file or package. By bundling, the number of requests made by the browser is reduced, resulting in faster load times and improved performance. Bundling can also include tasks like minification, compression, and tree shaking to further optimize the bundled output and reduce its file size. Overall, bundling is an essential technique that helps streamline web applications and enhance the user experience.
+
+```js
+(() => {
+	return gulp
+		.src(['./src/styles/*.css', './src/styles/**/*.css'])
+		.pipe(concat(`index.css`))
+		.pipe(cleanCSS())
+		.pipe(
+			autoPrefixer({
+				cascade: false
+			})
+		)
+		.pipe(gulp.dest('./static/'));
+})();
+```
+```js
+"scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "start:dev": "nodemon --inspect index.js",
+    "build": "npm-run-all build:*",
+    "build:assets": "node gulp-scripts/gulpfile-assets.js",
+    "build:css": "node gulp-scripts/gulpfile-css.js",
+    "build:js": "node gulp-scripts/gulpfile-js.js",
+    "build:uploads": "node gulp-scripts/gulpfile-uploads.js"
+}
+```
+
 -   I have added `font-display: swap;` to my fonts, so that a fall-back font is loaded until the real font has been downloaded.
 
 ```css
@@ -141,12 +170,16 @@ app.use(/.*-[0-9a-f]{10}\..*/, (req, res, next) => {
 });
 ```
 
--   Added compression
+-   Added compression. A process that effectively diminishes the size of packages available on the NPM registry. This leads to expedited downloads, decreased storage demands, and reduced network bandwidth usage.
 
 ```javascript
 import compression from 'compression';
 app.use(compression());
 ```
+
+- Using .svg or .webp images instead of .png or .jpg images. This is because .svg and .webp images are smaller in size and therefore load faster.
+
+
 
 ---
 
