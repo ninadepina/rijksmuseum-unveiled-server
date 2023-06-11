@@ -18,14 +18,6 @@ const CORE_ASSETS = [
 	'/static/getCookieValue.js',
 	'/static/scrollIntoView.js',
 	'/static/uploads/arrow-right.svg',
-	'/static/uploads/instagram.svg',
-	'/static/uploads/facebook.svg',
-	'/static/uploads/twitter.svg',
-	'/static/uploads/youtube.svg',
-	'/static/uploads/tiktok.svg',
-	'/static/uploads/linkedin.svg',
-	'/static/uploads/gb.svg',
-	'/static/uploads/ned.svg',
 	'/static/uploads/icon-192x192.png',
 	'/manifest.json'
 ];

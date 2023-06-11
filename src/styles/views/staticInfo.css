@@ -23,21 +23,21 @@
 .language label:focus-visible {
 	outline: 1px solid var(--color-dark);
 }
-.language img {
+.language svg {
 	height: 2em;
 	aspect-ratio: 1 / 1;
 	padding: 4px 0;
 	border-bottom: 1px solid var(--color-dark);
 	transition: 0.4s;
 }
-.language label:not(:has(input.active)) img {
+.language label:not(:has(input.active)) svg {
 	opacity: 30%;
 	filter: grayscale(0.4);
 	border-bottom: 1px solid transparent;
 	transition: 0.4s;
 	cursor: pointer;
 }
-.language label:not(:has(input.active)) img:hover {
+.language label:not(:has(input.active)) svg:hover {
 	opacity: 70%;
 	filter: none;
 }
@@ -91,16 +91,26 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		width: 30px;
-		height: 30px;
+		width: 1.875rem;
+		height: 1.875rem;
 		margin-top: 4px;
 		padding: auto;
+		transition: background-color 250ms ease-in-out;
 	}
 	.socials a:is(:hover, :focus-visible, :active) {
 		background-color: var(--color-dark);
 	}
-	.socials a:is(:hover, :focus-visible, :active) img {
-		filter: invert(1);
+	.socials a svg {
+		height: 1.25rem;
+		aspect-ratio: 1 / 1;
+		fill: none;
+	}
+	.socials a svg path {
+		fill: var(--color-dark);
+		transition: fill 250ms ease-in-out;
+	}
+	.socials a:is(:hover, :focus-visible, :active) svg path {
+		fill: var(--color-light);
 	}
 
 	/* (5)[desktop: language section] */
